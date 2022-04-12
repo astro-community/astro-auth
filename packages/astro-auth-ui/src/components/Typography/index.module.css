@@ -1,3 +1,15 @@
-.main {
-  font-size: 100px;
+@import url("https://rt-alias-medium.vercel.app/stylesheet.css");
+
+.text {
+  font-size: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+  background: linear-gradient(180deg, #1d5bfc 0%, #c238bd 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "RTAliasMedium", monospace;
+}
+
+.test {
+  font-size: 4rem;
+  font-family: "RTAliasMedium";
 }
