@@ -1,0 +1,33 @@
+.content {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content h2 {
+  line-height: 1.1;
+}
+
+.getStarted {
+  margin-top: 30px;
+  display: flex;
+}
+
+.getStarted button {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .getStarted {
+    flex-direction: column;
+  }
+
+  .getStarted button {
+    margin-left: 0;
+    margin-top: 9px;
+  }
+}
