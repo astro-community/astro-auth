@@ -1,0 +1,79 @@
+.button {
+  position: relative;
+  --border-radius: 8;
+  --pixel-size: 4;
+  border-radius: calc(var(--border-radius) * 1px);
+  padding: 0.67rem 2.5rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  transition: 0.2s transform, 0.2s background;
+
+  --link-color-stop-a: #1d5bfc;
+  --link-color-stop-b: #c238bd;
+}
+
+.button img {
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+
+  --link-color-stop-a: #6d39ff;
+  --link-color-stop-b: #af43ff;
+}
+
+.button:active {
+  transform: translateY(0);
+
+  --link-color-stop-a: #1d5bfc;
+  --link-color-stop-b: #c238bd;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--pixel-size) * 1px);
+  right: 0;
+  bottom: calc(var(--pixel-size) * 1px);
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    var(--link-color-stop-a),
+    var(--link-color-stop-b)
+  );
+  z-index: -1;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(var(--pixel-size) * 1px);
+  bottom: 0;
+  left: calc(var(--pixel-size) * 1px);
+  background: linear-gradient(
+    180deg,
+    var(--link-color-stop-a),
+    var(--link-color-stop-b)
+  );
+  z-index: -1;
+}
+
+/* .button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: -6px;
+  right: -6px;
+  background: linear-gradient(180deg, #1d5bfc, #c238bd);
+  z-index: -1;
+} */
