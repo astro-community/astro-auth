@@ -1,4 +1,5 @@
 import { Button, Title, GoogleButton } from "@astro-auth/ui";
+import { signIn } from "@astro-auth/core";
 import styles from "./index.module.css";
 
 const IntroSection = () => {
@@ -7,7 +8,11 @@ const IntroSection = () => {
       <Title as="h2">Welcome To Astro Auth Demo</Title>
       <div className={styles.getStarted}>
         <Button>Get Started</Button>
-        <GoogleButton />
+        <GoogleButton
+          onClick={() => {
+            console.log(signIn());
+          }}
+        />
       </div>
     </div>
   );

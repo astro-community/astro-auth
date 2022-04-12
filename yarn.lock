@@ -92,6 +92,14 @@
     svelte "^3.24.0"
     svelte2tsx "^0.5.5"
 
+"@astrojs/vercel@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-0.1.1.tgz#73a78c3b4263ec40f0a671c94dae204fb46911a4"
+  integrity sha512-turMnX+b94XdEUre4/Cz/nxqu0fsQCx6S9LcsPI2iYV/6G/1bnDJ8gqrFz2YIaWr7Szqew7YbqxUTOGP3AFDPg==
+  dependencies:
+    "@astrojs/webapi" "^0.11.0"
+    esbuild "^0.14.34"
+
 "@astrojs/webapi@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-0.11.0.tgz#73686e4af43502673b9538331b7c561aea1ca958"
@@ -4426,7 +4434,7 @@ type-fest@^2.5.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.12.2.tgz#80a53614e6b9b475eb9077472fb7498dc7aa51d0"
   integrity sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==
 
-typescript@~4.6.2:
+typescript@^4.6.3, typescript@~4.6.2:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
   integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==

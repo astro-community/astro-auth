@@ -10,11 +10,13 @@
   },
   "devDependencies": {
     "@astrojs/react": "^0.1.0",
+    "@astrojs/vercel": "^0.1.1",
     "astro": "^1.0.0-beta.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "dependencies": {
+    "@astro-auth/core": "1.0.0",
     "@astro-auth/ui": "1.0.0"
   }
 }

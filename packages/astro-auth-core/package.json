@@ -1,0 +1,17 @@
+{
+  "name": "@astro-auth/core",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Osada Vidath",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
