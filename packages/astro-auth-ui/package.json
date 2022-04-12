@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.0.0",
     "astro": "^1.0.0-beta.7",
     "autoprefixer": "^10.4.4",
+    "prettier-plugin-astro": "^0.0.12",
     "react-dom": "^18.0.0",
     "rollup": "^2.70.1",
     "rollup-plugin-dts": "^4.2.1",
