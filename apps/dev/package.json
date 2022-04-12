@@ -15,6 +15,6 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "astro-auth": "1.0.0"
+    "@astro-auth/ui": "1.0.0"
   }
 }

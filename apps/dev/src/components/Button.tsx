@@ -1,10 +1,10 @@
-import { Button } from "astro-auth";
-// import { type } from "astro-auth/react";
+import { Button, Typography } from "@astro-auth/ui";
 
 const NewButton = () => {
   return (
     <div>
       <Button />
+      <Typography />
     </div>
   );
 };
