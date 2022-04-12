@@ -13,7 +13,6 @@ const packageJson = require("./package.json");
 export default [
   {
     input: "src/index.ts",
-    external: ["react"],
     output: [
       {
         file: packageJson.main,
@@ -35,7 +34,9 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
+        sourceMap: true,
         extract: false,
+        minimize: true,
         plugins: [autoprefixer()],
         modules: true,
       }),
