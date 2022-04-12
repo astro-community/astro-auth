@@ -6,7 +6,6 @@ import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import autoprefixer from "autoprefixer";
-import babel from "rollup-plugin-babel";
 
 const packageJson = require("./package.json");
 
@@ -28,14 +27,11 @@ export default [
     plugins: [
       peerDepsExternal(),
       resolve(),
-      babel({
-        exclude: "node_modules/**",
-      }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
         sourceMap: true,
-        extract: false,
+        extract: true,
         minimize: true,
         plugins: [autoprefixer()],
         modules: true,
