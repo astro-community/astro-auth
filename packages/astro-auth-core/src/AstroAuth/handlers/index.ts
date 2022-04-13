@@ -2,6 +2,7 @@ import { AstroAuthParams } from "..";
 import parseCookie from "../../utils/parseCookieString";
 import OAuthCallback from "./oauthCallback";
 import signIn from "./signIn";
+import signOut from "./signout";
 
 const astroAuthHandler = async (
   request: Request,
@@ -21,6 +22,9 @@ const astroAuthHandler = async (
       );
 
       return signIn(request, requestBody.callback, oauthConfig);
+    }
+    case "signout": {
+      return signOut(request);
     }
     default: {
       if (url.startsWith("oauth")) {

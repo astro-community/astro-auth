@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Button, Title, GoogleButton } from "@astro-auth/ui";
+import { signOut } from "@astro-auth/client";
 import styles from "./index.module.css";
 
 interface IntroSectionProps {
@@ -16,7 +17,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false }) => {
       )}
       {isSignIn ? (
         <div className={styles.getStarted}>
-          <Button>Log Out</Button>
+          <Button onClick={() => signOut()}>Log Out</Button>
         </div>
       ) : (
         <div className={styles.getStarted}>

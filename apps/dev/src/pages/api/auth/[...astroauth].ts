@@ -12,3 +12,4 @@ const AstroAuthInstance = AstroAuth({
 
 export const get = AstroAuthInstance;
 export const post = AstroAuthInstance;
+export { AstroAuthInstance as delete };
