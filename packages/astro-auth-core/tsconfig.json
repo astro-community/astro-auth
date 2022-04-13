@@ -6,9 +6,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "declaration": true,
-    "skipLibCheck": true,
+    "declarationDir": "types",
+    "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "skipLibCheck": true,
     "moduleResolution": "node"
   }
 }

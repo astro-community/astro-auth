@@ -3,5 +3,11 @@
   "workspaces": [
     "packages/*",
     "apps/dev"
-  ]
+  ],
+  "scripts": {
+    "dev:packages": "concurrently \"cd packages/astro-auth-core && yarn dev\" \"cd packages/astro-auth-providers && yarn dev\" \"cd packages/astro-auth-ui && yarn dev\" "
+  },
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
 }

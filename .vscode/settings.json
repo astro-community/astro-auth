@@ -1,4 +1,11 @@
 {
-  "cSpell.words": ["astro", "astroauth", "astrojs", "signin"],
+  "cSpell.words": [
+    "astro",
+    "astroauth",
+    "astrojs",
+    "builtins",
+    "redaxios",
+    "signin"
+  ],
   "discord.enabled": false
 }
