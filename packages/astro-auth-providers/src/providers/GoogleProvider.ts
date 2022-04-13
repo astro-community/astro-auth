@@ -1,4 +1,4 @@
-import { OAuthConfig, OAuthUserOptions } from "../index";
+import { OAuthConfig, OAuthUserOptions } from "@astro-auth/types";
 import qs from "qs";
 
 const GoogleProvider = (options: OAuthUserOptions): OAuthConfig => {

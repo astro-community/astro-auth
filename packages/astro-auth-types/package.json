@@ -1,0 +1,10 @@
+{
+  "name": "@astro-auth/types",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "Osada Vidath",
+  "license": "MIT",
+  "files": [
+    "src"
+  ]
+}

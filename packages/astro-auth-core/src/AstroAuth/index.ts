@@ -1,4 +1,4 @@
-import { OAuthConfig } from "@astro-auth/providers";
+import { OAuthConfig } from "@astro-auth/types";
 import parseCookie from "../utils/parseCookieString";
 import astroAuthHandler from "./handler";
 
