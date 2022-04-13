@@ -1,15 +1,29 @@
+import { FC } from "react";
 import { Button, Title, GoogleButton } from "@astro-auth/ui";
-import { signIn } from "@astro-auth/core";
 import styles from "./index.module.css";
 
-const IntroSection = () => {
+interface IntroSectionProps {
+  isSignIn?: boolean;
+}
+
+const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false }) => {
   return (
     <div className={styles.content}>
-      <Title as="h2">Welcome To Astro Auth Demo</Title>
-      <div className={styles.getStarted}>
-        <Button>Get Started</Button>
-        <GoogleButton />
-      </div>
+      {isSignIn ? (
+        <Title as="h2">Welcome To The Dashboard</Title>
+      ) : (
+        <Title as="h2">Welcome To Astro Auth Demo</Title>
+      )}
+      {isSignIn ? (
+        <div className={styles.getStarted}>
+          <Button>Log Out</Button>
+        </div>
+      ) : (
+        <div className={styles.getStarted}>
+          <Button>Get Started</Button>
+          <GoogleButton />
+        </div>
+      )}
     </div>
   );
 };

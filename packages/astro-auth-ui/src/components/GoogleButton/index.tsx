@@ -9,9 +9,7 @@ interface GoogleButtonProps {
 
 const GoogleButton: FC<GoogleButtonProps> = ({
   children = "Login With Google",
-  onClick = () => {
-    console.log(signIn("google"));
-  },
+  onClick = () => signIn("google"),
 }) => {
   useEffect(() => {
     if ("paintWorklet" in CSS) {

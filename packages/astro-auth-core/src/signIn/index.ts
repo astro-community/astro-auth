@@ -4,9 +4,10 @@ import axios from "redaxios";
 const signIn = async (provider: Providers) => {
   const { data } = await axios.post("/api/auth/signin", {
     provider,
-    callback: "http://localhost:3000",
+    callback: "http://localhost:3000/dashboard",
   });
 
+  location.href = data.loginURL;
   return data;
 };
 
