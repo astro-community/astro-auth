@@ -8,11 +8,7 @@ const IntroSection = () => {
       <Title as="h2">Welcome To Astro Auth Demo</Title>
       <div className={styles.getStarted}>
         <Button>Get Started</Button>
-        <GoogleButton
-          onClick={() => {
-            console.log(signIn());
-          }}
-        />
+        <GoogleButton />
       </div>
     </div>
   );

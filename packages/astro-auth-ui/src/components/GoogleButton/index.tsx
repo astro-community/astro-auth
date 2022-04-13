@@ -1,3 +1,4 @@
+import { signIn } from "@astro-auth/core";
 import React, { FC, useEffect } from "react";
 import styles from "./index.module.css";
 
@@ -8,7 +9,9 @@ interface GoogleButtonProps {
 
 const GoogleButton: FC<GoogleButtonProps> = ({
   children = "Login With Google",
-  onClick,
+  onClick = () => {
+    console.log(signIn("google"));
+  },
 }) => {
   useEffect(() => {
     if ("paintWorklet" in CSS) {

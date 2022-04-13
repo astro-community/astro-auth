@@ -1,13 +1,17 @@
-interface AstroAuthParams {
-  AuthProviders?: any;
+import { OAuthConfig } from "@astro-auth/providers";
+import parseCookie from "../utils/parseCookieString";
+import astroAuthHandler from "./handler";
+
+export interface AstroAuthParams {
+  authProviders?: OAuthConfig[];
 }
 
-const AstroAuth =
-  ({}: AstroAuthParams) =>
-  ({ astroauth }: { astroauth: string }, request: Request) => {
+const AstroAuth = (astroAuthParams: AstroAuthParams) => {
+  return ({ astroauth }: { astroauth: string }, request: Request) => {
+    const cookies = parseCookie(request.headers.get("cookie") || "");
     return new Response(
       JSON.stringify({
-        method: request.method,
+        cookies,
       }),
       {
         status: 200,
@@ -16,6 +20,9 @@ const AstroAuth =
         },
       }
     );
+
+    const response = astroAuthHandler(request, astroauth, astroAuthParams);
   };
+};
 
 export default AstroAuth;
