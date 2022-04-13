@@ -1,5 +1,5 @@
 import { OAuthConfig } from "@astro-auth/types";
-import astroAuthHandler from "./handler";
+import astroAuthHandler from "./handlers/index";
 
 export interface AstroAuthParams {
   authProviders?: OAuthConfig[];
@@ -13,7 +13,6 @@ const AstroAuth = (astroAuthParams: AstroAuthParams) => {
       astroauth,
       astroAuthParams
     );
-    console.log(response);
 
     return new Response(JSON.stringify(response?.body), {
       status: response?.status || 200,

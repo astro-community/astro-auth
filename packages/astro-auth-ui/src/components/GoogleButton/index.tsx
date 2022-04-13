@@ -1,4 +1,4 @@
-import { signIn } from "@astro-auth/core";
+import { signIn } from "@astro-auth/client";
 import React, { FC, useEffect } from "react";
 import styles from "./index.module.css";
 

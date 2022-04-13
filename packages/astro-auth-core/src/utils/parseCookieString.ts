@@ -1,5 +1,6 @@
-const parseCookie = (str: string) =>
-  str
+const parseCookie = (str: string) => {
+  if (!str) return {};
+  return str
     .split(";")
     .map((v) => v.split("="))
     .reduce(
@@ -14,5 +15,6 @@ const parseCookie = (str: string) =>
       },
       {}
     );
+};
 
 export default parseCookie;

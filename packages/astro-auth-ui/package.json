@@ -23,7 +23,8 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "@astro-auth/core": "1.0.0"
+    "@astro-auth/core": "1.0.0",
+    "@astro-auth/client": "1.0.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"

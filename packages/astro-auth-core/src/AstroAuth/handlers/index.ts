@@ -1,5 +1,5 @@
-import { AstroAuthParams } from ".";
-import parseCookie from "../utils/parseCookieString";
+import { AstroAuthParams } from "..";
+import parseCookie from "../../utils/parseCookieString";
 import OAuthCallback from "./oauthCallback";
 import signIn from "./signIn";
 
@@ -12,14 +12,15 @@ const astroAuthHandler = async (
   const requestBody: {
     provider: string;
     callback: string;
-  } = await request.json();
+  } = await request.json().catch(() => {});
 
   switch (url) {
     case "signin": {
       const oauthConfig = config.authProviders?.find(
         (provider) => provider.id === requestBody.provider
       );
-      return signIn(request, oauthConfig);
+
+      return signIn(request, requestBody.callback, oauthConfig);
     }
     default: {
       if (url.startsWith("oauth")) {
@@ -27,16 +28,18 @@ const astroAuthHandler = async (
           (provider) => provider.id === url.split("/")[1]
         );
         const code = new URL(request.url).searchParams.get("code");
-        const jwt = OAuthCallback(request, oauthConfig, code ?? undefined);
+        const jwt = await OAuthCallback(
+          request,
+          oauthConfig,
+          code ?? undefined
+        );
 
         return {
-          status: 200,
-          body: {
-            jwt,
-          },
+          status: 302,
           headers: {
             "Set-Cookie": `__astroauth__session__=${jwt}; HttpOnly; Path=/;`,
-            Location: requestBody.callback,
+            "Content-Type": undefined,
+            Location: cookies["__astroauth__callback__"] ?? "/",
           },
         };
       }

@@ -9,7 +9,10 @@ const GoogleProvider = (options: OAuthUserOptions): OAuthConfig => {
     id: "google",
     name: "Google",
     type: "oauth",
-    scope: "openid email profile",
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email",
+    ].join(" "),
     options,
     async getAuthURL() {
       const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -31,7 +34,7 @@ const GoogleProvider = (options: OAuthUserOptions): OAuthConfig => {
           code,
           client_id: this.options.clientId,
           client_secret: this.options.clientSecret,
-          redirect_uri: "api/auth/oauth/google",
+          redirect_uri: `${astroAuthURL}/api/auth/oauth/google`,
           grant_type: "authorization_code",
         }),
         {

@@ -7,7 +7,9 @@ const signIn = async (provider: Providers) => {
     callback: "http://localhost:3000/dashboard",
   });
 
-  location.href = data.loginURL;
+  if (window.location) {
+    location.href = data.loginURL;
+  }
   return data;
 };
 

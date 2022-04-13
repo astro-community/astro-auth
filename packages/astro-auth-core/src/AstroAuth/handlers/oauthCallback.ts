@@ -30,9 +30,9 @@ const OAuthCallback = async (
       import.meta.env.ASTROAUTH_SECRET
     );
 
-    return googleUser;
+    return encodedJWT;
   } catch (error: any) {
-    throw new Error(error);
+    throw new Error(error.toString());
   }
 };
 
