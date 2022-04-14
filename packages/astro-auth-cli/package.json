@@ -1,8 +1,9 @@
 {
-  "name": "@astro-auth/astro-auth-cli",
+  "name": "@astro-auth/cli",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsc -w",
