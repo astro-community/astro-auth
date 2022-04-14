@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import styles from "./index.module.css";
 
 interface ButtonProps {
@@ -7,15 +7,6 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({ children, onClick }) => {
-  useEffect(() => {
-    if ("paintWorklet" in CSS) {
-      // @ts-ignore
-      CSS.paintWorklet.addModule(
-        "http://yourjavascript.com/12922541814/pixel.js"
-      );
-    }
-  }, []);
-
   return (
     <button className={styles.button} onClick={onClick}>
       {children}

@@ -11,14 +11,15 @@ const GoogleButton: FC<GoogleButtonProps> = ({
   children = "Login With Google",
   onClick = () => signIn("google"),
 }) => {
-  useEffect(() => {
-    if ("paintWorklet" in CSS) {
-      // @ts-ignore
-      CSS.paintWorklet.addModule(
-        "http://yourjavascript.com/12922541814/pixel.js"
-      );
-    }
-  }, []);
+  // TODO: Uncomment If pixelated border isn't working
+  // useEffect(() => {
+  //   if ("paintWorklet" in CSS) {
+  //     // @ts-ignore
+  //     CSS.paintWorklet.addModule(
+  //       "http://yourjavascript.com/12922541814/pixel.js"
+  //     );
+  //   }
+  // }, []);
 
   return (
     <button className={styles.button} onClick={onClick}>

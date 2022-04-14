@@ -5,14 +5,26 @@ export interface AstroAuthParams {
   authProviders?: OAuthConfig[];
 }
 
+interface AuthHandlerResponse {
+  status?: number;
+  body?: any;
+  headers?: {
+    [key: string]: string | undefined;
+  };
+}
+
 const AstroAuth = (astroAuthParams: AstroAuthParams) => {
   return async ({ astroauth }: { astroauth: string }, request: Request) => {
-    // TODO: Don' use any
-    const response: any = await astroAuthHandler(
+    const response: AuthHandlerResponse = (await astroAuthHandler(
       request,
       astroauth,
       astroAuthParams
-    );
+    )) ?? {
+      status: 500,
+      body: {
+        error: "Internal Server Error",
+      },
+    };
 
     return new Response(JSON.stringify(response?.body), {
       status: response?.status || 200,
