@@ -35,15 +35,14 @@
     vscode-languageserver-types "^3.16.0"
     vscode-uri "^3.0.2"
 
-"@astrojs/markdown-remark@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-0.8.1.tgz#10e875521d8eae7cc43933f1ec8b15ec3cdf1a64"
-  integrity sha512-H2Ld2aeeolfDZmTh9SM3YKFrAIrlUY3J0NHuDXwIQbA83blO041aye8jh0DsbVBO19Lpph5vz+cXNxK5uiRmlw==
+"@astrojs/markdown-remark@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-0.9.0.tgz#8901170b784e373a6e8c3276333391fe22920fea"
+  integrity sha512-yagb3udzk+xCoGSfyzA7LBS7Q4P8swGQzA8XURFPaK1HfY9BKYasUvtaTYGA7G0r8KeDKAOVmwzYP74gxXGslg==
   dependencies:
     "@astrojs/prism" "^0.4.1"
     assert "^2.0.0"
     github-slugger "^1.4.0"
-    gray-matter "^4.0.3"
     mdast-util-mdx-expression "^1.2.0"
     mdast-util-mdx-jsx "^1.2.0"
     mdast-util-to-string "^3.1.0"
@@ -104,6 +103,11 @@
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-0.11.0.tgz#73686e4af43502673b9538331b7c561aea1ca958"
   integrity sha512-hzltX2kPjAX0zEKymU7ceDLCqkZN0ztgucqAzyvM62TJdznv/HRniJz850qKcqAcoTqDXBH5j/5FCO0GXSQLbw==
+
+"@astrojs/webapi@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-0.11.1.tgz#d9b57e86e806944cefea2f117f2d5898ebc730ee"
+  integrity sha512-pZXhYWz1C4dOAznnO1Qst58O+iZfkzn5QypiH4xHVl5GU9gkbq/mAJ/wZ34127GayF4AnCZO37DMlTOLR4fBAQ==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.16.7":
   version "7.16.7"
@@ -734,16 +738,16 @@ ast-types@0.14.2, ast-types@^0.14.2:
   dependencies:
     tslib "^2.0.1"
 
-astro@^1.0.0-beta.7:
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-beta.7.tgz#53654cddf3acf840862bfbfd0b3cdc1187331caa"
-  integrity sha512-M3pEEw+brZ4N4TccH3599DRO634ohJak7jK1sj+cCeyJ5YforMoZmEpaJ/7VEWZfHYdPadmAYEJux5EwYBgKhA==
+astro@^1.0.0-beta.10:
+  version "1.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-beta.10.tgz#6b3458e4c5bda4cf7fe59f14ab768178f522851d"
+  integrity sha512-AgP5pUMpj8ZKrJyT89tRh8hubI7o9OxhjIzs6AA5UxqBECGrLGK4PM5mieNHtpGU3XsEw1uOXTZQkoEfC+LOoQ==
   dependencies:
     "@astrojs/compiler" "^0.14.1"
     "@astrojs/language-server" "^0.13.4"
-    "@astrojs/markdown-remark" "^0.8.1"
+    "@astrojs/markdown-remark" "^0.9.0"
     "@astrojs/prism" "0.4.1"
-    "@astrojs/webapi" "^0.11.0"
+    "@astrojs/webapi" "^0.11.1"
     "@babel/core" "^7.17.9"
     "@babel/generator" "^7.17.9"
     "@babel/parser" "^7.17.9"
@@ -764,6 +768,7 @@ astro@^1.0.0-beta.7:
     execa "^6.1.0"
     fast-glob "^3.2.11"
     fast-xml-parser "^4.0.7"
+    gray-matter "^4.0.3"
     html-entities "^2.3.3"
     html-escaper "^3.0.3"
     htmlparser2 "^7.2.0"

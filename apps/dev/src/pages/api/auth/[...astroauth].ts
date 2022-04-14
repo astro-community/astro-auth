@@ -1,7 +1,7 @@
 import AstroAuth from "@astro-auth/core";
 import { GoogleProvider } from "@astro-auth/providers";
 
-const AstroAuthInstance = AstroAuth({
+export const all = AstroAuth({
   authProviders: [
     GoogleProvider({
       clientId: import.meta.env.GOOGLE_CLIENT_ID,
@@ -9,7 +9,3 @@ const AstroAuthInstance = AstroAuth({
     }),
   ],
 });
-
-export const get = AstroAuthInstance;
-export const post = AstroAuthInstance;
-export { AstroAuthInstance as delete };

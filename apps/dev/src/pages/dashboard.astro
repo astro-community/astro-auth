@@ -1,5 +1,12 @@
 ---
 import IntroSection from "../components/IntroSection";
+import { getUser, redirectUser } from "@astro-auth/core";
+
+const user = getUser(Astro);
+if (!user) {
+  // return redirectUser();
+  return redirectUser("/");
+}
 ---
 
 <html lang="en">
@@ -10,6 +17,6 @@ import IntroSection from "../components/IntroSection";
   </head>
 
   <body>
-    <IntroSection client:load isSignIn={true} />
+    <IntroSection client:load isSignIn={true} {user} />
   </body>
 </html>

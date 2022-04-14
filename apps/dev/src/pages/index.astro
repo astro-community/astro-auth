@@ -1,5 +1,12 @@
 ---
 import IntroSection from "../components/IntroSection";
+
+import { getUser, redirectUser } from "@astro-auth/core";
+
+const session = getUser(Astro);
+if (session) {
+  return redirectUser("/dashboard");
+}
 ---
 
 <html lang="en">

@@ -2,7 +2,8 @@
   "name": "@astro-auth/client",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "author": "Osada Vidath",
+  "type": "module",
+  "author": "Osada Vidath <osadavidath@gmail.com>",
   "license": "MIT",
   "files": [
     "dist"

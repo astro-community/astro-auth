@@ -5,13 +5,18 @@ import styles from "./index.module.css";
 
 interface IntroSectionProps {
   isSignIn?: boolean;
+  user?: any;
 }
 
-const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false }) => {
+const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
   return (
     <div className={styles.content}>
       {isSignIn ? (
-        <Title as="h2">Welcome To The Dashboard</Title>
+        <>
+          <Title as="h2">{`Welcome To The Dashboard ${
+            (user as any).user.given_name
+          }`}</Title>
+        </>
       ) : (
         <Title as="h2">Welcome To Astro Auth Demo</Title>
       )}
@@ -21,7 +26,6 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false }) => {
         </div>
       ) : (
         <div className={styles.getStarted}>
-          <Button>Get Started</Button>
           <GoogleButton />
         </div>
       )}
