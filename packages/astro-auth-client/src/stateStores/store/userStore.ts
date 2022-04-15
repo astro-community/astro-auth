@@ -1,8 +1,14 @@
+import { useStore } from "@nanostores/react";
 import { atom } from "nanostores";
 
-const user = atom<any>({});
-export default user;
+const userAtom = atom<any>({});
+export default userAtom;
 
 export const setUser = (newUser: any) => {
-  user.set(newUser);
+  userAtom.set(newUser);
+};
+
+export const useUser = () => {
+  const user = useStore(userAtom);
+  return user;
 };

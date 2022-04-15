@@ -1,6 +1,7 @@
 ---
 import IntroSection from "../components/IntroSection";
 import { getUser } from "@astro-auth/core";
+import UserStore from "../components/UserStore";
 
 const user = getUser(Astro);
 ---
@@ -13,6 +14,7 @@ const user = getUser(Astro);
   </head>
 
   <body>
+    <UserStore user={user as any} client:load />
     <IntroSection client:load {user} />
   </body>
 </html>

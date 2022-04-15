@@ -15,8 +15,3 @@ const ReactStateStore: FC<ReactStateStoreProps> = ({ user }) => {
 };
 
 export default ReactStateStore;
-
-export const useUser = () => {
-  const user = useStore(userAtom);
-  return user;
-};

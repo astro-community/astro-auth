@@ -1,5 +1,6 @@
 import signOut from "./signOut";
 import signIn from "./signIn";
-import ReactStateStoreProps, { useUser } from "./stateStores/ReactStateStore";
+import ReactStateStoreProps from "./stateStores/ReactStateStore";
+import { useUser } from "./stateStores/store/userStore";
 
 export { signOut, signIn, useUser, ReactStateStoreProps as ReactStateStore };
