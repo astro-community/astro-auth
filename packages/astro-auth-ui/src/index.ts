@@ -4,7 +4,8 @@ import Button from "./components/Button";
 import Title from "./components/Title";
 
 import GoogleButton from "./components/GoogleButton";
+import DiscordButton from "./components/DiscordButton";
 
 import astroAuthComponents from "./utils/astroAuthComponents";
 
-export { Button, Title, astroAuthComponents, GoogleButton };
+export { Button, Title, astroAuthComponents, GoogleButton, DiscordButton };

@@ -32,7 +32,7 @@ const astroAuthHandler = async (
           (provider) => provider.id === url.split("/")[1]
         );
         const code = new URL(request.url).searchParams.get("code");
-        const { googleUser, encodedJWT } = await OAuthCallback(
+        const { transformedUsers, encodedJWT } = await OAuthCallback(
           request,
           oauthConfig,
           code ?? undefined,
@@ -41,7 +41,7 @@ const astroAuthHandler = async (
 
         // This could be a boolean or a string
         const shouldUserLoginHookResponse = config.hooks?.signIn
-          ? config.hooks?.signIn(googleUser)
+          ? config.hooks?.signIn(transformedUsers)
           : null;
 
         const shouldUserLogin = config.hooks?.signIn

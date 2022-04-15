@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Button, Title, GoogleButton } from "@astro-auth/ui";
+import { Button, Title, GoogleButton, DiscordButton } from "@astro-auth/ui";
 import { signOut } from "@astro-auth/client";
 import styles from "./index.module.css";
 import { useUser } from "@astro-auth/client";
@@ -31,6 +31,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
       ) : (
         <div className={styles.getStarted}>
           <GoogleButton />
+          <DiscordButton />
         </div>
       )}
 

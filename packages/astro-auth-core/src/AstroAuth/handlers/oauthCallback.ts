@@ -1,5 +1,6 @@
 import { OAuthConfig } from "@astro-auth/types";
 import jwt from "jsonwebtoken";
+import { TokenSet } from "openid-client";
 import openIdClient from "../../lib/oauth/client";
 
 const astroAuthURL = import.meta.env.ASTROAUTH_URL;
@@ -28,12 +29,23 @@ const OAuthCallback = async (
   }
 
   const oauthClient = await openIdClient(oauthConfig);
+  console.log(oauthClient);
 
   try {
-    const userTokens = await oauthClient.callback(
-      `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
-      { code: code }
-    );
+    let userTokens: TokenSet;
+
+    if (oauthConfig.idToken) {
+      userTokens = await oauthClient.callback(
+        `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
+        { code: code }
+      );
+    } else {
+      userTokens = await oauthClient.oauthCallback(
+        `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
+        { code: code }
+      );
+    }
+
     const user = await oauthClient.userinfo(userTokens.access_token ?? "");
 
     const transformedUsers = {

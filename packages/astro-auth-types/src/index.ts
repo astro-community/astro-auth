@@ -8,10 +8,13 @@ export interface OAuthConfig {
   name: string;
   type: string;
   options: OAuthUserOptions;
-  scope: string;
-  wellKnown: string;
-  idToken: boolean;
-  checks: string[];
+  scope?: string;
+  wellKnown?: string;
+  idToken?: boolean;
+  checks?: string[];
+  authorization?: string;
+  token?: string;
+  userinfo?: string;
 }
 
-export type Providers = "google";
+export type Providers = "google" | "discord";
