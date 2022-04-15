@@ -356,6 +356,11 @@
   resolved "https://registry.yarnpkg.com/@ljharb/has-package-exports-patterns/-/has-package-exports-patterns-0.0.2.tgz#c1718939b65efa1f45f53686c2fcfa992b9fb68f"
   integrity sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==
 
+"@nanostores/react@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@nanostores/react/-/react-0.2.0.tgz#592e68672a4c7fd4abbdae79713a677dd1e89740"
+  integrity sha512-8kR6Ke8KAacAuBvodGrMNtLof8xF44WkfqtWWMZffP0TZsXEePdIWEQ6MDmCvVzbFAwOKvF71YjVAJ660NYCAw==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -438,6 +443,14 @@
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-8.3.1.tgz#b7dc75ed6b4876e260b9e80624fab23bc98e4ac1"
   integrity sha512-84rExe3ICUBXzqNX48WZV2Jp3OddjTMX97O2Py6D1KJaGSwWp0mDHXj+bCGNJqWHIEKDIT2U0sDjhP4czKi6cA==
+  dependencies:
+    "@rollup/pluginutils" "^3.1.0"
+    resolve "^1.17.0"
+
+"@rollup/plugin-typescript@^8.3.2":
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-8.3.2.tgz#e1b719e2ed3e752bbc092001656c48378f2d15f0"
+  integrity sha512-MtgyR5LNHZr3GyN0tM7gNO9D0CS+Y+vflS4v/PHmrX17JCkHUYKvQ5jN5o3cz1YKllM3duXUqu3yOHwMPUxhDg==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     resolve "^1.17.0"
@@ -3328,6 +3341,11 @@ nanoid@^3.3.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.2.tgz#c89622fafb4381cd221421c69ec58547a1eec557"
   integrity sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==
+
+nanostores@^0.5.12:
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/nanostores/-/nanostores-0.5.12.tgz#52559ddbaddf1da7d45e2221287178f9480c5e5d"
+  integrity sha512-5BccS7nNInTc7Noz2gv19gyx5h5y6m72nj6ZnCTV98GdFdwvcFJf2MMl+7VsX76E1toV1YrLqlDn+R+OF73PVg==
 
 nlcst-to-string@^2.0.0:
   version "2.0.4"

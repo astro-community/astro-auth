@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Button, Title, GoogleButton } from "@astro-auth/ui";
 import { signOut } from "@astro-auth/client";
 import styles from "./index.module.css";
+import { useUser } from "@astro-auth/client";
 
 interface IntroSectionProps {
   isSignIn?: boolean;
@@ -9,6 +10,8 @@ interface IntroSectionProps {
 }
 
 const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
+  const storedUser = useUser();
+
   return (
     <div className={styles.content}>
       {isSignIn ? (
@@ -29,6 +32,8 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
           <GoogleButton />
         </div>
       )}
+
+      <code>{JSON.stringify(storedUser)}</code>
     </div>
   );
 };

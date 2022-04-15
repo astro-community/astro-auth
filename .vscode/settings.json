@@ -4,6 +4,7 @@
     "astroauth",
     "astrojs",
     "builtins",
+    "nanostores",
     "redaxios",
     "signin",
     "signout"

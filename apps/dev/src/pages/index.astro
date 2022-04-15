@@ -1,12 +1,8 @@
 ---
 import IntroSection from "../components/IntroSection";
+import { getUser } from "@astro-auth/core";
 
-import { getUser, redirectUser } from "@astro-auth/core";
-
-const session = getUser(Astro);
-if (session) {
-  return redirectUser("/dashboard");
-}
+const user = getUser(Astro);
 ---
 
 <html lang="en">
@@ -17,6 +13,6 @@ if (session) {
   </head>
 
   <body>
-    <IntroSection client:load />
+    <IntroSection client:load {user} />
   </body>
 </html>

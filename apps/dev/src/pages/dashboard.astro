@@ -4,7 +4,6 @@ import { getUser, redirectUser } from "@astro-auth/core";
 
 const user = getUser(Astro);
 if (!user) {
-  // return redirectUser();
   return redirectUser("/");
 }
 ---

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@astro-auth/core": "1.0.0",
+    "@astro-auth/client": "1.0.0",
     "@astro-auth/providers": "1.0.0",
     "@astro-auth/ui": "1.0.0"
   }

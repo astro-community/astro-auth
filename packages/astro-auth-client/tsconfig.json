@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "ES2020",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "declaration": true,
     "skipLibCheck": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true
   }
 }
