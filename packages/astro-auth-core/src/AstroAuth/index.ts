@@ -3,6 +3,10 @@ import astroAuthHandler from "./handlers/index";
 
 export interface AstroAuthParams {
   authProviders?: OAuthConfig[];
+  hooks?: {
+    jwt?: (user: any) => any;
+    signIn?: (user: any) => boolean | string;
+  };
 }
 
 interface AuthHandlerResponse {

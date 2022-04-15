@@ -4,7 +4,8 @@ import jwt from "jsonwebtoken";
 const OAuthCallback = async (
   request: Request,
   oauthConfig?: OAuthConfig,
-  code?: string
+  code?: string,
+  generateJWT?: (user: any) => any
 ) => {
   if (request.method != "GET") {
     return {
@@ -25,12 +26,14 @@ const OAuthCallback = async (
 
   try {
     const googleUser = await oauthConfig.getUser(code);
+    const generatedData = generateJWT ? generateJWT(googleUser) : googleUser;
+
     const encodedJWT = await jwt.sign(
-      googleUser,
+      generatedData,
       import.meta.env.ASTROAUTH_SECRET
     );
 
-    return encodedJWT;
+    return { googleUser, encodedJWT };
   } catch (error: any) {
     throw new Error(error.toString());
   }

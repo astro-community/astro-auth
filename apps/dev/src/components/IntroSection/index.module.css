@@ -12,6 +12,13 @@
   line-height: 1.1;
 }
 
+.content .profileImage {
+  margin-bottom: 25px;
+  border-radius: 50%;
+  width: 140px;
+  aspect-ratio: 1/1;
+}
+
 .getStarted {
   margin-top: 30px;
   display: flex;
