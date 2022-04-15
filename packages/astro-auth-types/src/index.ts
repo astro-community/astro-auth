@@ -9,14 +9,9 @@ export interface OAuthConfig {
   type: string;
   options: OAuthUserOptions;
   scope: string;
-  getAuthURL(): Promise<string>;
-  getUser(code: string): Promise<{
-    access_token: string;
-    expires_in: Number;
-    refresh_token: string;
-    scope: string;
-    id_token: string;
-  }>;
+  wellKnown: string;
+  idToken: boolean;
+  checks: string[];
 }
 
 export type Providers = "google";

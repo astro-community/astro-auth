@@ -1,5 +1,8 @@
 import { OAuthConfig } from "@astro-auth/types";
 import jwt from "jsonwebtoken";
+import openIdClient from "../../lib/oauth/client";
+
+const astroAuthURL = import.meta.env.ASTROAUTH_URL;
 
 const OAuthCallback = async (
   request: Request,
@@ -24,16 +27,30 @@ const OAuthCallback = async (
     throw new Error("Google OAuth Error");
   }
 
+  const oauthClient = await openIdClient(oauthConfig);
+
   try {
-    const googleUser = await oauthConfig.getUser(code);
-    const generatedData = generateJWT ? generateJWT(googleUser) : googleUser;
+    const userTokens = await oauthClient.callback(
+      `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
+      { code: code }
+    );
+    const user = await oauthClient.userinfo(userTokens.access_token ?? "");
+
+    const transformedUsers = {
+      user,
+      ...userTokens,
+    };
+
+    const generatedData = generateJWT
+      ? generateJWT(transformedUsers)
+      : transformedUsers;
 
     const encodedJWT = await jwt.sign(
       generatedData,
       import.meta.env.ASTROAUTH_SECRET
     );
 
-    return { googleUser, encodedJWT };
+    return { transformedUsers, encodedJWT };
   } catch (error: any) {
     throw new Error(error.toString());
   }

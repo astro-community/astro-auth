@@ -44,15 +44,11 @@ const astroAuthHandler = async (
           ? config.hooks?.signIn(googleUser)
           : null;
 
-        console.log(shouldUserLoginHookResponse);
-
         const shouldUserLogin = config.hooks?.signIn
           ? typeof shouldUserLoginHookResponse == "boolean"
             ? !!shouldUserLoginHookResponse
             : false
           : true;
-
-        console.log(shouldUserLogin);
 
         if (!shouldUserLogin) {
           return {

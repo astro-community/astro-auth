@@ -1,4 +1,5 @@
 import { OAuthConfig } from "@astro-auth/types";
+import openIdClient from "../../lib/oauth/client";
 
 const signIn = async (
   request: Request,
@@ -18,10 +19,14 @@ const signIn = async (
     throw new Error("Provider Is Not Configured");
   }
 
+  const oauthClient = await openIdClient(oauthConfig);
+
   return {
     status: 200,
     body: {
-      loginURL: await oauthConfig.getAuthURL(),
+      loginURL: oauthClient.authorizationUrl({
+        scope: oauthConfig.scope,
+      }),
     },
     headers: {
       "Set-Cookie": `__astroauth__callback__=${callback}; HttpOnly; Path=/;`,

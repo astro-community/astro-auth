@@ -5,6 +5,7 @@
     "astrojs",
     "builtins",
     "nanostores",
+    "pkce",
     "redaxios",
     "signin",
     "signout"
