@@ -8,4 +8,16 @@ export const all = AstroAuth({
       clientSecret: import.meta.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  hooks: {
+    jwt: ({ accessToken, refreshToken, user }) => {
+      return {
+        accessToken,
+        refreshToken,
+        user,
+      };
+    },
+    signIn: () => {
+      return true;
+    },
+  },
 });

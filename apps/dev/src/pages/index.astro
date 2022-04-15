@@ -4,6 +4,8 @@ import { getUser } from "@astro-auth/core";
 import UserStore from "../components/UserStore";
 
 const user = getUser(Astro);
+
+const error = new URL(Astro.request.url).searchParams.get("error");
 ---
 
 <html lang="en">
@@ -14,6 +16,11 @@ const user = getUser(Astro);
   </head>
 
   <body>
+
+    <div>
+      {error && <div>{error}</div>}
+    </div>
+
     <UserStore user={user as any} client:load />
     <IntroSection client:load {user} />
   </body>

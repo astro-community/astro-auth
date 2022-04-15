@@ -32,16 +32,47 @@ const astroAuthHandler = async (
           (provider) => provider.id === url.split("/")[1]
         );
         const code = new URL(request.url).searchParams.get("code");
-        const jwt = await OAuthCallback(
+        const { googleUser, encodedJWT } = await OAuthCallback(
           request,
           oauthConfig,
-          code ?? undefined
+          code ?? undefined,
+          config.hooks?.jwt
         );
+
+        // This could be a boolean or a string
+        const shouldUserLoginHookResponse = config.hooks?.signIn
+          ? config.hooks?.signIn(googleUser)
+          : null;
+
+        console.log(shouldUserLoginHookResponse);
+
+        const shouldUserLogin = config.hooks?.signIn
+          ? typeof shouldUserLoginHookResponse == "boolean"
+            ? !!shouldUserLoginHookResponse
+            : false
+          : true;
+
+        console.log(shouldUserLogin);
+
+        if (!shouldUserLogin) {
+          return {
+            status: 302,
+            headers: {
+              Location:
+                typeof shouldUserLoginHookResponse == "string"
+                  ? shouldUserLoginHookResponse
+                  : "/?error=Not Allowed",
+              "Content-Type": undefined,
+              "Set-Cookie":
+                "__astroauth__session__=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT",
+            },
+          };
+        }
 
         return {
           status: 302,
           headers: {
-            "Set-Cookie": `__astroauth__session__=${jwt}; HttpOnly; Path=/;`,
+            "Set-Cookie": `__astroauth__session__=${encodedJWT}; HttpOnly; Path=/;`,
             "Content-Type": undefined,
             Location: cookies["__astroauth__callback__"] ?? "/",
           },

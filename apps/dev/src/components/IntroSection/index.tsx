@@ -16,6 +16,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
     <div className={styles.content}>
       {isSignIn ? (
         <>
+          <img src={user.user.picture} className={styles.profileImage} />
           <Title as="h2">{`Welcome To The Dashboard ${
             (user as any).user.given_name
           }`}</Title>
