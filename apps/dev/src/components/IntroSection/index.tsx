@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { Button, Title, GoogleButton, DiscordButton } from "@astro-auth/ui";
-import { signOut } from "@astro-auth/client";
+import { signOut,useUser } from "@astro-auth/client";
 import styles from "./index.module.css";
-import { useUser } from "@astro-auth/client";
 
 interface IntroSectionProps {
   isSignIn?: boolean;
@@ -16,10 +15,8 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
     <div className={styles.content}>
       {isSignIn ? (
         <>
-          <img src={user.user.picture} className={styles.profileImage} />
-          <Title as="h2">{`Welcome To The Dashboard ${
-            (user as any).user.given_name
-          }`}</Title>
+          <img src={user.user.image} className={styles.profileImage} />
+          <Title as="h2">{`Welcome To The Dashboard ${user.user.name}`}</Title>
         </>
       ) : (
         <Title as="h2">Welcome To Astro Auth Demo</Title>

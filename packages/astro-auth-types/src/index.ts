@@ -15,6 +15,7 @@ export interface OAuthConfig {
   authorization?: string;
   token?: string;
   userinfo?: string;
+  profile: (profile: any) => any;
 }
 
 export type Providers = "google" | "discord";

@@ -1,9 +1,8 @@
 import { OAuthConfig } from "@astro-auth/types";
 import jwt from "jsonwebtoken";
-import { TokenSet } from "openid-client";
-import openIdClient from "../../lib/oauth/client";
 
-const astroAuthURL = import.meta.env.ASTROAUTH_URL;
+import openIdClient from "../../lib/oauth/client";
+import getUserDetails from "../../lib/oauth/getUserDetails";
 
 const OAuthCallback = async (
   request: Request,
@@ -29,40 +28,26 @@ const OAuthCallback = async (
   }
 
   const oauthClient = await openIdClient(oauthConfig);
-  console.log(oauthClient);
 
   try {
-    let userTokens: TokenSet;
-
-    if (oauthConfig.idToken) {
-      userTokens = await oauthClient.callback(
-        `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
-        { code: code }
-      );
-    } else {
-      userTokens = await oauthClient.oauthCallback(
-        `${astroAuthURL}/api/auth/oauth/${oauthConfig.id}`,
-        { code: code }
-      );
-    }
-
-    const user = await oauthClient.userinfo(userTokens.access_token ?? "");
-
-    const transformedUsers = {
-      user,
-      ...userTokens,
-    };
+    const user = await getUserDetails(oauthConfig, code);
 
     const generatedData = generateJWT
-      ? generateJWT(transformedUsers)
-      : transformedUsers;
+      ? generateJWT(user)
+      : {
+          accessToken: user.access_token,
+          user: {
+            ...user.user,
+            originalUser: undefined,
+          },
+        };
 
     const encodedJWT = await jwt.sign(
       generatedData,
       import.meta.env.ASTROAUTH_SECRET
     );
 
-    return { transformedUsers, encodedJWT };
+    return { user, encodedJWT };
   } catch (error: any) {
     throw new Error(error.toString());
   }

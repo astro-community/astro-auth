@@ -16,8 +16,10 @@ export const all = AstroAuth({
     jwt: ({ accessToken, refreshToken, user }) => {
       return {
         accessToken,
-        refreshToken,
-        user,
+        user: {
+          ...user,
+          originalUser: user.originalUser,
+        },
       };
     },
     signIn: () => {
