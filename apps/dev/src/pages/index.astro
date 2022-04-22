@@ -3,7 +3,7 @@ import IntroSection from "../components/IntroSection";
 import { getUser,getError } from "@astro-auth/core";
 import UserStore from "../components/UserStore";
 
-const user = getUser(Astro);
+const user = getUser({client:Astro});
 const error = getError(Astro);
 ---
 

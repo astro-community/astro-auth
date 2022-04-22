@@ -2,7 +2,7 @@
 import IntroSection from "../components/IntroSection";
 import { getUser, redirectUser } from "@astro-auth/core";
 
-const user = getUser(Astro);
+const user = getUser({ client: Astro });
 if (!user) {
   return redirectUser("/");
 }
