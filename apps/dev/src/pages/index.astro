@@ -1,11 +1,10 @@
 ---
 import IntroSection from "../components/IntroSection";
-import { getUser } from "@astro-auth/core";
+import { getUser,getError } from "@astro-auth/core";
 import UserStore from "../components/UserStore";
 
 const user = getUser(Astro);
-
-const error = new URL(Astro.request.url).searchParams.get("error");
+const error = getError(Astro);
 ---
 
 <html lang="en">

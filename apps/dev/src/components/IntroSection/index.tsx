@@ -53,7 +53,6 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
                   email: emailRef.current?.value,
                   password: passwordRef.current?.value,
                 },
-                callbackURL: "https://google.com",
               });
             }}
           >
