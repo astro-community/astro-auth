@@ -1,4 +1,5 @@
 import GoogleProvider from "./providers/GoogleProvider";
 import DiscordProvider from "./providers/DiscordProvider";
+import CredentialProvider from "./providers/CredentialProvider";
 
-export { GoogleProvider, DiscordProvider };
+export { GoogleProvider, DiscordProvider, CredentialProvider };

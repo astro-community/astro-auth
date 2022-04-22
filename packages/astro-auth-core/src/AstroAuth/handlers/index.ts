@@ -13,15 +13,23 @@ const astroAuthHandler = async (
   const requestBody: {
     provider: string;
     callback: string;
-  } = await request.json().catch(() => {});
+  } = await request
+    .clone()
+    .json()
+    .catch(() => {});
 
   switch (url) {
     case "signin": {
-      const oauthConfig = config.authProviders?.find(
+      const authConfig = config.authProviders?.find(
         (provider) => provider.id === requestBody.provider
       );
 
-      return signIn(request, requestBody.callback, oauthConfig);
+      return signIn(
+        request,
+        requestBody.callback,
+        authConfig,
+        config.hooks?.jwt
+      );
     }
     case "signout": {
       return signOut(request);
@@ -32,7 +40,12 @@ const astroAuthHandler = async (
           (provider) => provider.id === url.split("/")[1]
         );
         const code = new URL(request.url).searchParams.get("code");
-        const { transformedUsers, encodedJWT } = await OAuthCallback(
+        if (oauthConfig?.type == "credential") {
+          return {
+            status: 500,
+          };
+        }
+        const { user, encodedJWT } = await OAuthCallback(
           request,
           oauthConfig,
           code ?? undefined,
@@ -41,7 +54,7 @@ const astroAuthHandler = async (
 
         // This could be a boolean or a string
         const shouldUserLoginHookResponse = config.hooks?.signIn
-          ? config.hooks?.signIn(transformedUsers)
+          ? config.hooks?.signIn(user)
           : null;
 
         const shouldUserLogin = config.hooks?.signIn

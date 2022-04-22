@@ -5,11 +5,17 @@ import styles from "./index.module.css";
 interface DiscordButtonProps {
   children?: string;
   onClick?: () => void;
+  callbackURL?: string;
 }
 
 const DiscordButton: FC<DiscordButtonProps> = ({
   children = "Login With Discord",
-  onClick = () => signIn("discord"),
+  callbackURL,
+  onClick = () =>
+    signIn({
+      provider: "discord",
+      callbackURL: callbackURL,
+    }),
 }) => {
   return (
     <button className={styles.button} onClick={onClick}>

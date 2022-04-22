@@ -6,7 +6,7 @@ export interface OAuthUserOptions {
 export interface OAuthConfig {
   id: string;
   name: string;
-  type: string;
+  type: "oauth";
   options: OAuthUserOptions;
   scope?: string;
   wellKnown?: string;
@@ -18,4 +18,14 @@ export interface OAuthConfig {
   profile: (profile: any) => any;
 }
 
-export type Providers = "google" | "discord";
+export interface CredentialUserOptions {
+  authorize: (properties: any) => any;
+}
+
+export interface CredentialConfig {
+  id: "credential";
+  type: "credential";
+  options: CredentialUserOptions;
+}
+
+export type Providers = "credential" | "google" | "discord";

@@ -33,7 +33,7 @@ const OAuthCallback = async (
     const user = await getUserDetails(oauthConfig, code);
 
     const generatedData = generateJWT
-      ? generateJWT(user)
+      ? generateJWT({ ...user, provider: oauthConfig.id })
       : {
           accessToken: user.access_token,
           user: {

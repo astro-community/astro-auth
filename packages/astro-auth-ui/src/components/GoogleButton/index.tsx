@@ -5,11 +5,17 @@ import styles from "./index.module.css";
 interface GoogleButtonProps {
   children?: string;
   onClick?: () => void;
+  callbackURL?: string;
 }
 
 const GoogleButton: FC<GoogleButtonProps> = ({
   children = "Login With Google",
-  onClick = () => signIn("google"),
+  callbackURL,
+  onClick = () =>
+    signIn({
+      provider: "google",
+      callbackURL: callbackURL,
+    }),
 }) => {
   // TODO: Uncomment If pixelated border isn't working
   // useEffect(() => {

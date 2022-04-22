@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { Button, Title, GoogleButton, DiscordButton } from "@astro-auth/ui";
-import { signOut,useUser } from "@astro-auth/client";
+import { signIn, signOut, useUser } from "@astro-auth/client";
 import styles from "./index.module.css";
 
 interface IntroSectionProps {
@@ -11,24 +11,54 @@ interface IntroSectionProps {
 const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
   const storedUser = useUser();
 
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   return (
     <div className={styles.content}>
       {isSignIn ? (
         <>
-          <img src={user.user.image} className={styles.profileImage} />
-          <Title as="h2">{`Welcome To The Dashboard ${user.user.name}`}</Title>
+          {user.user && (
+            <>
+              <img src={user.user.image} className={styles.profileImage} />
+              <Title as="h2">{`Welcome To The Dashboard ${user.user.name}`}</Title>
+            </>
+          )}
         </>
       ) : (
         <Title as="h2">Welcome To Astro Auth Demo</Title>
       )}
+
       {isSignIn ? (
         <div className={styles.getStarted}>
           <Button onClick={() => signOut()}>Log Out</Button>
         </div>
       ) : (
-        <div className={styles.getStarted}>
-          <GoogleButton />
-          <DiscordButton />
+        <div>
+          <div className={styles.getStarted}>
+            <GoogleButton />
+            <DiscordButton />
+          </div>
+
+          <div>
+            <input type="text" placeholder="Email" ref={emailRef} />
+            <input type="text" placeholder="Password" ref={passwordRef} />
+          </div>
+
+          <button
+            onClick={() => {
+              signIn({
+                provider: "credential",
+                login: {
+                  email: emailRef.current?.value,
+                  password: passwordRef.current?.value,
+                },
+                callbackURL: "https://google.com",
+              });
+            }}
+          >
+            LOGIN
+          </button>
         </div>
       )}
 

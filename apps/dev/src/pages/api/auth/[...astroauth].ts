@@ -1,5 +1,9 @@
 import AstroAuth from "@astro-auth/core";
-import { GoogleProvider, DiscordProvider } from "@astro-auth/providers";
+import {
+  GoogleProvider,
+  DiscordProvider,
+  CredentialProvider,
+} from "@astro-auth/providers";
 
 export const all = AstroAuth({
   authProviders: [
@@ -11,14 +15,27 @@ export const all = AstroAuth({
       clientId: import.meta.env.DISCORD_CLIENT_ID,
       clientSecret: import.meta.env.DISCORD_CLIENT_SECRET,
     }),
+    CredentialProvider({
+      authorize: (properties) => {
+        if (properties.email == "osadavidath@gmail.com") {
+          return properties;
+        }
+
+        return null;
+      },
+    }),
   ],
   hooks: {
-    jwt: ({ accessToken, refreshToken, user }) => {
+    jwt: (user) => {
+      if (user.provider == "credential") {
+        return user;
+      }
+
       return {
-        accessToken,
+        accessToken: user.accessToken,
         user: {
-          ...user,
-          originalUser: user.originalUser,
+          ...user.user,
+          originalUser: user.user.originalUser,
         },
       };
     },
