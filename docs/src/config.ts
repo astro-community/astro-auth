@@ -1,6 +1,6 @@
 export const SITE = {
-  title: "Your Documentation Website",
-  description: "Your website description.",
+  title: "Astro Auth",
+  description: "The One Stop Solution To Authentication With Astro",
   defaultLanguage: "en_US",
 };
 
@@ -18,7 +18,6 @@ export const KNOWN_LANGUAGES = {
   English: "en",
 };
 
-// Uncomment this to add an "Edit this page" button to every page of documentation.
 export const GITHUB_EDIT_URL =
   "https://github.com/osadavc/astro-auth/tree/master/docs/";
 
