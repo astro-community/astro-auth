@@ -6,6 +6,7 @@
     "builtins",
     "nanostores",
     "pkce",
+    "preact",
     "redaxios",
     "signin",
     "signout",
