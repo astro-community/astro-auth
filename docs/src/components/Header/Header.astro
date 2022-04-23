@@ -1,7 +1,6 @@
 ---
 import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from '../../languages.ts';
 import * as CONFIG from '../../config.ts';
-import AstroLogo from './AstroLogo.astro';
 import SkipToContent from './SkipToContent.astro';
 import SidebarToggle from './SidebarToggle.tsx';
 import LanguageSelect from './LanguageSelect.tsx';
@@ -18,10 +17,8 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			<SidebarToggle client:idle />
 		</div>
 		<div class="logo flex">
-			<AstroLogo size={40} />
-			<a href="/">
-				<h1>{CONFIG.SITE.title ?? "Documentation"}</h1>
-			</a>
+				<!-- <img src="/astroauth.png" alt="Astro Auth Logo" class="logo_img" onclick="location.href='/'"> -->
+				<a href="/"><h1>Astro Auth</h1></a>
 		</div>
 		<div style="flex-grow: 1;"></div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
@@ -49,8 +46,10 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 
 	.logo {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		overflow: hidden;
-		width: 30px;
+		/* width: 100px; */
 		font-size: 2rem;
 		flex-shrink: 0;
 		font-weight: 600;
@@ -58,6 +57,13 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		color: hsla(var(--color-base-white), 100%, 1);
 		gap: 0.25em;
 		z-index: -1;
+	}
+
+	.logo_img {
+		width: 200px;
+		height: 100%;
+		object-fit: contain;
+		cursor: pointer;
 	}
 
 	.logo a {

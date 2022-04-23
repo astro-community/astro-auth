@@ -36,7 +36,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
       ) : (
         <div>
           <div className={styles.getStarted}>
-            <GoogleButton />
+            <GoogleButton callbackURL="https://youtu.be/dQw4w9WgXcQ" />
             <DiscordButton />
           </div>
 

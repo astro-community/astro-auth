@@ -3,6 +3,7 @@
     "astro",
     "astroauth",
     "astrojs",
+    "behaviour",
     "builtins",
     "nanostores",
     "pkce",

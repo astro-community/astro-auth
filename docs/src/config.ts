@@ -6,12 +6,10 @@ export const SITE = {
 
 export const OPEN_GRAPH = {
   image: {
-    src: "https://github.com/withastro/astro/blob/main/assets/social/banner.jpg?raw=true",
-    alt:
-      "astro logo on a starry expanse of space," +
-      " with a purple saturn-like planet floating in the right foreground",
+    src: "https://raw.githubusercontent.com/osadavc/astro-auth/master/docs/public/astroauth_bg.png?token=GHSAT0AAAAAABLHC2RY3WJCGLNM7UTPMA2CYTDVLPA",
+    alt: "The One Stop Solution To Authentication With Astro",
   },
-  twitter: "astrodotbuild",
+  twitter: "osadavc",
 };
 
 export const KNOWN_LANGUAGES = {
@@ -35,12 +33,14 @@ export const GITHUB_EDIT_URL =
 export const SIDEBAR = {
   en: [
     { text: "", header: true },
-    { text: "Section Header", header: true },
-    { text: "Introduction", link: "en/introduction" },
-    { text: "Page 2", link: "en/page-2" },
-    { text: "Page 3", link: "en/page-3" },
-
-    { text: "Another Section", header: true },
-    { text: "Page 4", link: "en/page-4" },
+    { text: "Getting Started", header: true },
+    { text: "Introduction", link: "getting-started/introduction" },
+    { text: "Getting Started", link: "getting-started/getting-started" },
+    {
+      text: "Using Astro Auth",
+      link: "getting-started/using-astro-auth",
+    },
+    // { text: "Astro Auth CLI", link: "getting-started/astro-auth-cli" },
+    { text: "Typescript Support", link: "getting-started/typescript-support" },
   ],
 };

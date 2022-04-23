@@ -3,9 +3,12 @@ import IntroSection from "../components/IntroSection";
 import { getUser,getError } from "@astro-auth/core";
 import UserStore from "../components/UserStore";
 
+
 const user = getUser({client:Astro});
 const error = getError(Astro);
 ---
+
+  
 
 <html lang="en">
   <head>
@@ -13,9 +16,7 @@ const error = getError(Astro);
     <meta name="viewport" content="width=device-width" />
     <title>Astro</title>
   </head>
-
   <body>
-
     <div>
       {error && <div>{error}</div>}
     </div>
