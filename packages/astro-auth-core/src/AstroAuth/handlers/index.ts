@@ -78,8 +78,6 @@ const astroAuthHandler = async (
           };
         }
 
-        console.log(cookies["__astroauth__callback__"]);
-
         return {
           status: 307,
           headers: {

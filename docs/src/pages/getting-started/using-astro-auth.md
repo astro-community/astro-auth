@@ -70,7 +70,16 @@ const Login = () => {
       <GoogleButton callbackURL="https://youtu.be/dQw4w9WgXcQ" />
       // If you are not using the UI Library, you will need to add the following
       code
-      <button onClick={() => signIn("google")}>Login with Google</button>
+      <button
+        onClick={() =>
+          signIn({
+            provider: "google",
+            callbackURL: "https://youtu.be/dQw4w9WgXcQ",
+          })
+        }
+      >
+        Login with Google
+      </button>
     </div>
   );
 };
@@ -102,4 +111,4 @@ GOOGLE_CLIENT_SECRET=
 
 Run `npm run dev` or `yarn dev` in your terminal and open `localhost:3000` in your browser. You should see a beautiful Astro like Login With Google button. Just click that and go through the process. If you did everything correct, you should be rick rolled at this point.
 
-> At this point, you should be able to use any login provider to successfully authenticate a user in your app.
+> At this point, you should be able to use any login provider to successfully **authenticate** a user in your app. You will learn more about how to **authorize** the logged in users in the next section.
