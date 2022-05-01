@@ -1,6 +1,6 @@
 import { signIn } from "@astro-auth/client";
 import React, { FC, useEffect } from "react";
-import styles from "./index.module.css";
+import styles from "../socialButtons.module.css";
 
 interface DiscordButtonProps {
   children?: string;

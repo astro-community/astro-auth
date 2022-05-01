@@ -15,6 +15,7 @@ export interface OAuthConfig {
   authorization?: string;
   token?: string;
   userinfo?: string;
+  userInfoParams?: object;
   profile: (profile: any) => any;
 }
 
@@ -28,4 +29,4 @@ export interface CredentialConfig {
   options: CredentialUserOptions;
 }
 
-export type Providers = "credential" | "google" | "discord";
+export type Providers = "credential" | "google" | "discord" | "twitter";

@@ -1,19 +1,19 @@
 import { signIn } from "@astro-auth/client";
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import styles from "../socialButtons.module.css";
 
-interface GoogleButtonProps {
+interface TwitterButtonProps {
   children?: string;
   onClick?: () => void;
   callbackURL?: string;
 }
 
-const GoogleButton: FC<GoogleButtonProps> = ({
-  children = "Login With Google",
+const TwitterButton: FC<TwitterButtonProps> = ({
+  children = "Login With Twitter",
   callbackURL,
   onClick = () =>
     signIn({
-      provider: "google",
+      provider: "twitter",
       callbackURL: callbackURL,
     }),
 }) => {
@@ -30,7 +30,7 @@ const GoogleButton: FC<GoogleButtonProps> = ({
   return (
     <button className={styles.button} onClick={onClick}>
       <img
-        src="https://img.icons8.com/ios-glyphs/280/ffffff/google-logo--v1.png"
+        src="https://img.icons8.com/ios-glyphs/280/ffffff/twitter.png"
         style={{
           width: "20px",
         }}
@@ -40,4 +40,4 @@ const GoogleButton: FC<GoogleButtonProps> = ({
   );
 };
 
-export default GoogleButton;
+export default TwitterButton;

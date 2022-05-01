@@ -65,15 +65,3 @@
   );
   z-index: -1;
 }
-
-/* .button::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: -6px;
-  right: -6px;
-  background: linear-gradient(180deg, #1d5bfc, #c238bd);
-  z-index: -1;
-} */

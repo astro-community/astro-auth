@@ -1,6 +1,8 @@
 import { OAuthConfig, CredentialConfig } from "@astro-auth/types";
 import openIdClient from "../../lib/oauth/client";
 import jwt from "jsonwebtoken";
+import { getPKCE } from "../../lib/oauth/pkceUtils";
+import { getState } from "../../lib/oauth/stateUtils";
 
 const signIn = async (
   request: Request,
@@ -62,16 +64,27 @@ const signIn = async (
   }
 
   const oauthClient = await openIdClient(config);
+  const pkceCode = getPKCE(config);
+  const state = getState(config);
 
   return {
     status: 200,
     body: {
       loginURL: oauthClient.authorizationUrl({
+        state: state ?? undefined,
         scope: config.scope,
+        code_challenge: pkceCode?.code_challenge,
+        code_challenge_method: pkceCode?.code_challenge_method,
       }),
     },
     headers: {
       "Set-Cookie": `__astroauth__callback__=${callback}; HttpOnly; Path=/;`,
+      // @ts-expect-error
+      "Set-Cookie": `__astroauth__state__=${state ?? ""}; HttpOnly; Path=/;`,
+      // @ts-expect-error
+      "Set-Cookie": `__astroauth__pkce__=${
+        pkceCode?.code_verifier ?? ""
+      }; HttpOnly; Path=/;`,
     },
   };
 };

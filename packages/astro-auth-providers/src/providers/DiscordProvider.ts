@@ -10,6 +10,7 @@ const DiscordProvider = (options: OAuthUserOptions): OAuthConfig => {
     authorization: "https://discord.com/api/oauth2/authorize",
     token: "https://discord.com/api/oauth2/token",
     userinfo: "https://discord.com/api/users/@me",
+    checks: ["state"],
     profile(profile) {
       if (profile.avatar === null) {
         const defaultAvatarNumber = parseInt(profile.discriminator) % 5;

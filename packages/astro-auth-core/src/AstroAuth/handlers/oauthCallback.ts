@@ -1,8 +1,8 @@
 import { OAuthConfig } from "@astro-auth/types";
 import jwt from "jsonwebtoken";
 
-import openIdClient from "../../lib/oauth/client";
 import getUserDetails from "../../lib/oauth/getUserDetails";
+import parseCookie from "../../utils/parseCookieString";
 
 const OAuthCallback = async (
   request: Request,
@@ -24,13 +24,13 @@ const OAuthCallback = async (
   }
 
   if (!code) {
-    throw new Error("Google OAuth Error");
+    // TODO:
+    throw new Error(`${oauthConfig.name} OAuth Error`);
   }
 
-  const oauthClient = await openIdClient(oauthConfig);
-
   try {
-    const user = await getUserDetails(oauthConfig, code);
+    const cookies = parseCookie(request.headers.get("cookie") ?? "");
+    const user = await getUserDetails(oauthConfig, code, cookies);
 
     const generatedData = generateJWT
       ? generateJWT({ ...user, provider: oauthConfig.id })

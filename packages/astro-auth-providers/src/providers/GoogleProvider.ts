@@ -9,7 +9,7 @@ const GoogleProvider = (options: OAuthUserOptions): OAuthConfig => {
     options,
     wellKnown: "https://accounts.google.com/.well-known/openid-configuration",
     idToken: true,
-    checks: ["pkce", "state"],
+    checks: ["state", "pkce"],
     profile(profile) {
       return {
         id: profile.sub,

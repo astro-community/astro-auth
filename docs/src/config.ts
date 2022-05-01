@@ -42,8 +42,13 @@ export const SIDEBAR = {
     },
     // { text: "Astro Auth CLI", link: "getting-started/astro-auth-cli" },
     { text: "Typescript Support", link: "getting-started/typescript-support" },
+
     { text: "Hooks", header: true },
     { text: "JWT Hook", link: "hooks/jwt" },
     { text: "Sign In Hook", link: "hooks/sign-in" },
+
+    { text: "Client Package", header: true },
+    { text: "Sign In", link: "client/signIn" },
+    { text: "Sign Out", link: "client/signOut" },
   ],
 };
