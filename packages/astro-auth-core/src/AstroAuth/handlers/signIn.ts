@@ -72,7 +72,7 @@ const signIn = async (
     body: {
       loginURL: oauthClient.authorizationUrl({
         state: state ?? undefined,
-        scope: config.scope,
+        scope: config.options.scope ? config.options.scope : config.scope,
         code_challenge: pkceCode?.code_challenge,
         code_challenge_method: pkceCode?.code_challenge_method,
       }),

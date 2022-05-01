@@ -1,6 +1,7 @@
 export interface OAuthUserOptions {
   clientId: string;
   clientSecret: string;
+  scope?: string;
 }
 
 export interface OAuthConfig {

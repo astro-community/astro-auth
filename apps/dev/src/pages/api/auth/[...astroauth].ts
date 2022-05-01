@@ -19,6 +19,7 @@ export const all = AstroAuth({
     TwitterProvider({
       clientId: import.meta.env.TWITTER_CLIENT_ID,
       clientSecret: import.meta.env.TWITTER_CLIENT_SECRET,
+      scope: ["users.read", "offline.access"].join(" "),
     }),
     CredentialProvider({
       authorize: (properties) => {
