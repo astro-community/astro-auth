@@ -6,7 +6,7 @@ import {
   DiscordButton,
   TwitterButton,
 } from "@astro-auth/ui";
-import { signIn, signOut, useUser } from "@astro-auth/client";
+import { signIn, signOut, ReactStateStore } from "@astro-auth/client";
 import styles from "./index.module.css";
 
 interface IntroSectionProps {
@@ -15,7 +15,7 @@ interface IntroSectionProps {
 }
 
 const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
-  const storedUser = useUser();
+  const storedUser = ReactStateStore.useStore();
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
