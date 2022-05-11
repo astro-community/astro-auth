@@ -21,6 +21,25 @@ const configPath = isProjectTS
       "[...astroauth].js"
     );
 
+const createConfigFileFlow = () => {
+  inquirer
+    .prompt([
+      {
+        type: "confirm",
+        name: "create",
+        message: "✨ Do you want to create a astroauth config file ?",
+        default: false,
+      },
+    ])
+    .then((answers: { create: boolean }) => {
+      if (answers.create) {
+        createConfigFile();
+      } else {
+        console.log("Goodbye! 👋");
+      }
+    });
+};
+
 const createConfigFile = () => {
   const config = `import AstroAuth from "@astro-auth/core";
 // Import Providers Here
@@ -31,8 +50,95 @@ export const all = AstroAuth({
   ],
 });`;
 
+  fs.mkdirSync(path.join(process.cwd(), "src", "pages", "api", "auth"), {
+    recursive: true,
+  });
+
   fs.writeFileSync(configPath, config, "utf8");
   console.log("✅ astroauth config file created successfully");
+};
+
+const createStateIsland = (defaultConfirmation?: boolean) => {
+  inquirer
+    .prompt([
+      {
+        type: "confirm",
+        name: "state_island",
+        message:
+          "✨ Do you want to setup state-island? (Still Only Working With React)",
+        default: defaultConfirmation || false,
+      },
+    ])
+    .then((answers: { state_island: boolean }) => {
+      const jsStateIsland = `import { ReactStateStore } from "@astro-auth/client";
+
+const UserStore = ({ user }) => {
+  return <ReactStateStore user={user} />;
+};
+
+export default UserStore;
+`;
+
+      const tsStateIsland = `import { ReactStateStore } from "@astro-auth/client";
+
+const UserStore = ({ user }: any) => {
+  return <ReactStateStore user={user} />;
+};
+
+export default UserStore;
+`;
+
+      fs.mkdirSync(path.join(process.cwd(), "src", "components", "UserStore"), {
+        recursive: true,
+      });
+
+      if (answers.state_island) {
+        if (isProjectTS) {
+          fs.writeFileSync(
+            path.join(
+              process.cwd(),
+              "src",
+              "components",
+              "UserStore",
+              "index.tsx"
+            ),
+            tsStateIsland,
+            "utf8"
+          );
+        } else {
+          fs.writeFileSync(
+            path.join(
+              process.cwd(),
+              "src",
+              "components",
+              "UserStore",
+              "index.jsx"
+            ),
+            jsStateIsland,
+            "utf8"
+          );
+        }
+
+        const packageJSON = fs
+          .readFileSync(path.join(process.cwd(), "package.json"))
+          .toString();
+
+        const isAstroClientInstalled = (
+          Object.keys(JSON.parse(packageJSON).dependencies) as Array<any>
+        ).find((item) => item == "@astro-auth/client");
+
+        if (!isAstroClientInstalled) {
+          return console.log("🚨 You need to install @astro-auth/client first");
+        }
+
+        console.log("✅ State island setup successfully");
+        console.log(
+          "📃 Read the documentation (https://astro-auth.weoffersolution.com/state-store/react) for more info about using the state island"
+        );
+      } else {
+        console.log("Goodbye! 👋");
+      }
+    });
 };
 
 const main = () => {
@@ -40,23 +146,39 @@ const main = () => {
     return console.log("🚨 You need to run `npm init` first");
   }
 
+  const isPackageJSON = fs.existsSync(path.join(process.cwd(), "package.json"));
+
+  if (!isPackageJSON) {
+    return console.log("🚨 You need to run `npm init` first");
+  }
+
   const packageJSON = fs
     .readFileSync(path.join(process.cwd(), "package.json"))
     .toString();
 
+  const isDevDeps = JSON.parse(packageJSON).devDependencies;
+
+  if (!isDevDeps) {
+    return console.log(
+      "🚨 It doesn't look like a project that supports astroauth"
+    );
+  }
+
   const isAstroInstalled = (
-    Object.keys(JSON.parse(packageJSON).devDependencies) as Array<any>
+    Object.keys(JSON.parse(packageJSON)?.devDependencies) as Array<any>
   ).find((item) => item == "astro");
 
   if (!isAstroInstalled) {
-    return console.log("🚨 You need to install `astro` first");
+    return console.log(
+      "🚨 It doesn't look like a project that supports astroauth"
+    );
   }
 
-  const isAstroAuthInstalled = (
+  const isAstroAuthCoreInstalled = (
     Object.keys(JSON.parse(packageJSON).dependencies) as Array<any>
   ).find((item) => item == "@astro-auth/core");
 
-  if (!isAstroAuthInstalled) {
+  if (!isAstroAuthCoreInstalled) {
     return console.log("🚨 You need to install @astro-auth/core first");
   }
 
@@ -101,8 +223,12 @@ const main = () => {
         }
       });
   } else {
-    createConfigFile();
+    createConfigFileFlow();
   }
 };
 
-main();
+if (process.argv[2] === "-state") {
+  createStateIsland(true);
+} else {
+  main();
+}

@@ -14,7 +14,7 @@ Astro Auth is consists of 5 main packages namely,
 
 2. `@astro-auth/client` - [NPM Package](https://www.npmjs.com/package/@astro-auth/client) - This package contains all the utility functions that are used from the front matter or front end to interact with Astro Auth easily.
 
-3. `@astro-auth/ui` - [NPM Package](https://www.npmjs.com/package/@astro-auth/ui) - This package contains the Astro Themed UI Elements that you can use to easily get started with Astro Auth.
+3. `@astro-auth/ui` (In Beta) - [NPM Package](https://www.npmjs.com/package/@astro-auth/ui) - This package contains the Astro Themed UI Elements that you can use to easily get started with Astro Auth.
 
 4. `@astro-auth/providers` - [NPM Package](https://www.npmjs.com/package/@astro-auth/providers) - This package contains all the prebuilt OAuth providers that comes with Astro Auth.
 

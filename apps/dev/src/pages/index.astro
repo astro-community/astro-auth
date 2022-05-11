@@ -8,20 +8,19 @@ const user = getUser({client:Astro});
 const error = getError(Astro);
 ---
 
-  
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Astro</title>
+    <UserStore user={user as any} client:load />
   </head>
   <body>
     <div>
       {error && <div>{error}</div>}
     </div>
 
-    <UserStore user={user as any} client:load />
     <IntroSection client:load {user} />
   </body>
 </html>

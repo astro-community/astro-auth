@@ -1,6 +1,7 @@
 ---
 import IntroSection from "../components/IntroSection";
 import { getUser, redirectUser } from "@astro-auth/core";
+import UserStore from "../components/UserStore";
 
 const user = getUser({ client: Astro });
 if (!user) {
@@ -13,6 +14,7 @@ if (!user) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Astro</title>
+    <UserStore {user} client:load />
   </head>
 
   <body>
