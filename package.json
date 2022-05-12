@@ -6,7 +6,9 @@
     "docs"
   ],
   "scripts": {
-    "dev:packages": "concurrently \"cd packages/astro-auth-client && yarn dev\" \"cd packages/astro-auth-core && yarn dev\" \"cd packages/astro-auth-providers && yarn dev\" \"cd packages/astro-auth-ui && yarn dev\" "
+    "dev:packages": "concurrently \"cd packages/astro-auth-client && yarn dev\" \"cd packages/astro-auth-core && yarn dev\" \"cd packages/astro-auth-providers && yarn dev\" \"cd packages/astro-auth-ui && yarn dev\" ",
+    "build:packages": "concurrently \"cd packages/astro-auth-client && yarn build\" \"cd packages/astro-auth-core && yarn build\" \"cd packages/astro-auth-providers && yarn build\" \"cd packages/astro-auth-ui && yarn build\" ",
+    "publish:packages": "concurrently \"cd packages/astro-auth-client && npm publish\" \"cd packages/astro-auth-core && npm publish\" \"cd packages/astro-auth-providers && npm publish\" \"cd packages/astro-auth-ui && npm publish\" "
   },
   "dependencies": {
     "concurrently": "^7.1.0"

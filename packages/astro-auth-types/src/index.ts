@@ -30,4 +30,13 @@ export interface CredentialConfig {
   options: CredentialUserOptions;
 }
 
-export type Providers = "credential" | "google" | "discord" | "twitter";
+export type Providers =
+  | "credential"
+  | "google"
+  | "discord"
+  | "twitter"
+  | "facebook"
+  | "github"
+  | "instagram"
+  | "spotify"
+  | "zoom";

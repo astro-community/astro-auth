@@ -7,6 +7,9 @@ interface ImportMetaEnv {
 
   readonly TWITTER_CLIENT_ID: string;
   readonly TWITTER_CLIENT_SECRET: string;
+
+  readonly GITHUB_CLIENT_ID: string;
+  readonly GITHUB_CLIENT_SECRET: string;
 }
 
 interface ImportMeta {

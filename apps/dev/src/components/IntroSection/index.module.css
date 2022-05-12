@@ -21,20 +21,22 @@
 
 .getStarted {
   margin-top: 30px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px 10px;
+
+  margin-bottom: 20px;
 }
 
-.getStarted button {
-  margin-left: 10px;
+.getStartedLogged {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 @media screen and (max-width: 700px) {
   .getStarted {
-    flex-direction: column;
-  }
-
-  .getStarted button {
-    margin-left: 0;
-    margin-top: 9px;
+     grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -2,25 +2,25 @@ import { signIn } from "@astro-auth/client";
 import React, { FC, useEffect } from "react";
 import styles from "../socialButtons.module.css";
 
-interface DiscordButtonProps {
+interface GithubButtonProps {
   children?: string;
   onClick?: () => void;
   callbackURL?: string;
 }
 
-const DiscordButton: FC<DiscordButtonProps> = ({
-  children = "Login With Discord",
+const GithubButton: FC<GithubButtonProps> = ({
+  children = "Login With Github",
   callbackURL,
   onClick = () =>
     signIn({
-      provider: "discord",
+      provider: "github",
       callbackURL: callbackURL,
     }),
 }) => {
   return (
     <button className={styles.button} onClick={onClick}>
       <img
-        src="https://img.icons8.com/ios-glyphs/280/ffffff/discord--v1.png"
+        src="https://img.icons8.com/ios-glyphs/280/ffffff/github.png"
         style={{
           width: "20px",
         }}
@@ -30,4 +30,4 @@ const DiscordButton: FC<DiscordButtonProps> = ({
   );
 };
 
-export default DiscordButton;
+export default GithubButton;

@@ -5,6 +5,7 @@ import {
   GoogleButton,
   DiscordButton,
   TwitterButton,
+  GithubButton,
 } from "@astro-auth/ui";
 import { signIn, signOut, ReactStateStore } from "@astro-auth/client";
 import styles from "./index.module.css";
@@ -36,7 +37,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
       )}
 
       {isSignIn ? (
-        <div className={styles.getStarted}>
+        <div className={[styles.getStarted, styles.getStartedLogged].join(" ")}>
           <Button onClick={() => signOut()}>Log Out</Button>
         </div>
       ) : (
@@ -45,6 +46,7 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
             <GoogleButton callbackURL="https://youtu.be/dQw4w9WgXcQ" />
             <DiscordButton />
             <TwitterButton />
+            <GithubButton />
           </div>
 
           <div>

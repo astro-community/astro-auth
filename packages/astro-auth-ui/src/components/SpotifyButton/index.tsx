@@ -2,14 +2,14 @@ import { signIn } from "@astro-auth/client";
 import React, { FC, useEffect } from "react";
 import styles from "../socialButtons.module.css";
 
-interface DiscordButtonProps {
+interface SpotifyButtonProps {
   children?: string;
   onClick?: () => void;
   callbackURL?: string;
 }
 
-const DiscordButton: FC<DiscordButtonProps> = ({
-  children = "Login With Discord",
+const SpotifyButton: FC<SpotifyButtonProps> = ({
+  children = "Login With Spotify",
   callbackURL,
   onClick = () =>
     signIn({
@@ -20,7 +20,7 @@ const DiscordButton: FC<DiscordButtonProps> = ({
   return (
     <button className={styles.button} onClick={onClick}>
       <img
-        src="https://img.icons8.com/ios-glyphs/280/ffffff/discord--v1.png"
+        src="https://img.icons8.com/ios-glyphs/280/ffffff/spotify.png"
         style={{
           width: "20px",
         }}
@@ -30,4 +30,4 @@ const DiscordButton: FC<DiscordButtonProps> = ({
   );
 };
 
-export default DiscordButton;
+export default SpotifyButton;

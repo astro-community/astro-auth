@@ -4,6 +4,7 @@ import {
   DiscordProvider,
   CredentialProvider,
   TwitterProvider,
+  GithubProvider,
 } from "@astro-auth/providers";
 
 export const all = AstroAuth({
@@ -20,6 +21,10 @@ export const all = AstroAuth({
       clientId: import.meta.env.TWITTER_CLIENT_ID,
       clientSecret: import.meta.env.TWITTER_CLIENT_SECRET,
       scope: ["users.read", "offline.access"].join(" "),
+    }),
+    GithubProvider({
+      clientId: import.meta.env.GITHUB_CLIENT_ID,
+      clientSecret: import.meta.env.GITHUB_CLIENT_SECRET,
     }),
     CredentialProvider({
       authorize: (properties) => {

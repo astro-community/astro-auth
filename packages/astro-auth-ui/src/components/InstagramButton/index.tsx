@@ -2,25 +2,25 @@ import { signIn } from "@astro-auth/client";
 import React, { FC, useEffect } from "react";
 import styles from "../socialButtons.module.css";
 
-interface DiscordButtonProps {
+interface InstagramButtonProps {
   children?: string;
   onClick?: () => void;
   callbackURL?: string;
 }
 
-const DiscordButton: FC<DiscordButtonProps> = ({
-  children = "Login With Discord",
+const InstagramButton: FC<InstagramButtonProps> = ({
+  children = "Login With Instagram",
   callbackURL,
   onClick = () =>
     signIn({
-      provider: "discord",
+      provider: "instagram",
       callbackURL: callbackURL,
     }),
 }) => {
   return (
     <button className={styles.button} onClick={onClick}>
       <img
-        src="https://img.icons8.com/ios-glyphs/280/ffffff/discord--v1.png"
+        src="https://img.icons8.com/ios-glyphs/280/ffffff/instagram-new.png"
         style={{
           width: "20px",
         }}
@@ -30,4 +30,4 @@ const DiscordButton: FC<DiscordButtonProps> = ({
   );
 };
 
-export default DiscordButton;
+export default InstagramButton;
