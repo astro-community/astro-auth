@@ -28,14 +28,19 @@ const astroAuthHandler = async (
         request,
         requestBody.callback,
         authConfig,
-        config.hooks?.jwt
+        config.hooks?.jwt,
+        config.hooks?.redirectError
       );
     }
     case "signout": {
       return signOut(request);
     }
     default: {
+      // console.log(request);
+
       if (url.startsWith("oauth")) {
+        console.log("🚀");
+
         const oauthConfig = config.authProviders?.find(
           (provider) => provider.id === url.split("/")[1]
         );
@@ -49,7 +54,8 @@ const astroAuthHandler = async (
           request,
           oauthConfig,
           code ?? undefined,
-          config.hooks?.jwt
+          config.hooks?.jwt,
+          config.hooks?.redirectError
         );
 
         // This could be a boolean or a string

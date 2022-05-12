@@ -8,7 +8,8 @@ const OAuthCallback = async (
   request: Request,
   oauthConfig?: OAuthConfig,
   code?: string,
-  generateJWT?: (user: any) => any
+  generateJWT?: (user: any) => any,
+  redirectError?: (error: Error) => string
 ) => {
   if (request.method != "GET") {
     return {
@@ -20,16 +21,44 @@ const OAuthCallback = async (
   }
 
   if (!oauthConfig) {
+    if (redirectError) {
+      const redirectURL = redirectError(
+        new Error("Provider Is Not Configured")
+      );
+
+      return {
+        status: 307,
+        headers: {
+          "Content-Type": undefined,
+          Location: `${redirectURL}/?error=Provider Is Not Configured`,
+        },
+      };
+    }
+
     throw new Error("Provider Is Not Configured");
   }
 
   if (!code) {
-    // TODO:
+    if (redirectError) {
+      const redirectURL = redirectError(
+        new Error(`${oauthConfig.name} OAuth Error`)
+      );
+
+      return {
+        status: 307,
+        headers: {
+          "Content-Type": undefined,
+          Location: `${redirectURL}/?error=${oauthConfig.name} OAuth Error`,
+        },
+      };
+    }
+
     throw new Error(`${oauthConfig.name} OAuth Error`);
   }
 
   try {
     const cookies = parseCookie(request.headers.get("cookie") ?? "");
+    console.log("HERE");
     const user = await getUserDetails(oauthConfig, code, cookies);
 
     const generatedData = generateJWT
@@ -49,6 +78,18 @@ const OAuthCallback = async (
 
     return { user, encodedJWT };
   } catch (error: any) {
+    if (redirectError) {
+      const redirectURL = redirectError(new Error(error.toString()));
+
+      return {
+        status: 307,
+        headers: {
+          "Content-Type": undefined,
+          Location: `${redirectURL}/?error=${oauthConfig.name} OAuth Error`,
+        },
+      };
+    }
+
     throw new Error(error.toString());
   }
 };

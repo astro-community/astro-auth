@@ -53,5 +53,9 @@ export const all = AstroAuth({
     signIn: () => {
       return true;
     },
+    redirectError: (error) => {
+      console.log(error.message);
+      return "/";
+    },
   },
 });

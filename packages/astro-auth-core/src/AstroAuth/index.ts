@@ -6,19 +6,30 @@ export interface AstroAuthParams {
   hooks?: {
     jwt?: (user: any) => any;
     signIn?: (user: any) => boolean | string;
+    redirectError?: (error: Error) => string;
   };
 }
 
 interface AuthHandlerResponse {
   status?: number;
   body?: any;
-  headers?: {
-    [key: string]: string | undefined | string[];
-  };
+  headers?:
+    | {
+        [key: string]: string | undefined | string[];
+      }
+    | Headers;
 }
 
 const AstroAuth = (astroAuthParams: AstroAuthParams) => {
-  return async ({ astroauth }: { astroauth: string }, request: Request) => {
+  return async ({
+    params: { astroauth },
+    request,
+  }: {
+    params: {
+      astroauth: string;
+    };
+    request: Request;
+  }) => {
     const response: AuthHandlerResponse = (await astroAuthHandler(
       request,
       astroauth,
@@ -29,6 +40,10 @@ const AstroAuth = (astroAuthParams: AstroAuthParams) => {
         error: "Internal Server Error",
       },
     };
+
+    if (!import.meta.env.ASTROAUTH_SECRET || !import.meta.env.ASTROAUTH_URL) {
+      throw new Error("ASTROAUTH_SECRET and ASTROAUTH_URL must be set");
+    }
 
     return new Response(JSON.stringify(response?.body), {
       status: response?.status || 200,

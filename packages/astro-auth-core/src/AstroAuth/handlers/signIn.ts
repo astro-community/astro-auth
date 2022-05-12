@@ -3,12 +3,14 @@ import openIdClient from "../../lib/oauth/client";
 import jwt from "jsonwebtoken";
 import { getPKCE } from "../../lib/oauth/pkceUtils";
 import { getState } from "../../lib/oauth/stateUtils";
+import getURLSlash from "../../utils/getURLSlash";
 
 const signIn = async (
   request: Request,
   callback: string,
   config?: OAuthConfig | CredentialConfig,
-  generateJWT?: (user: any) => any
+  generateJWT?: (user: any) => any,
+  redirectError?: (error: Error) => string
 ) => {
   if (request.method != "POST") {
     return {
@@ -60,12 +62,43 @@ const signIn = async (
   }
 
   if (!config) {
+    if (redirectError) {
+      const redirectURL = redirectError(
+        new Error("Provider Is Not Configured")
+      );
+
+      return {
+        status: 200,
+        headers: {
+          "Content-Type": undefined,
+        },
+        body: {
+          redirect: `${redirectURL}${getURLSlash(
+            redirectURL
+          )}?error=Provider Is Not Configured`,
+        },
+      };
+    }
     throw new Error("Provider Is Not Configured");
   }
 
   const oauthClient = await openIdClient(config);
   const pkceCode = getPKCE(config);
   const state = getState(config);
+
+  const headers = new Headers();
+  headers.set(
+    "Set-Cookie",
+    `__astroauth__callback__=${callback}; HttpOnly; Path=/;`
+  );
+  headers.set(
+    "Set-Cookie",
+    `__astroauth__state__=${state ?? ""}; HttpOnly; Path=/;`
+  );
+  headers.set(
+    "Set-Cookie",
+    `__astroauth__pkce__=${pkceCode?.code_verifier ?? ""}; HttpOnly; Path=/;`
+  );
 
   return {
     status: 200,
