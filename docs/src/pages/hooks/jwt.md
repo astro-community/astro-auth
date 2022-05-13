@@ -64,3 +64,19 @@ As you can see, you will get the `user` as a argument. You can alter the content
 You get the very basic info about the user in the user sub object and you will also have a parameter called originalUser which contains the untouched user object from the OAuth provider.
 
 Using this way, you can customize the contents of the token in any way that you need.
+
+### Customize Default Token
+
+If you want to customize the token by using the default token as a template, you can copy the default token's generating function and modify it according to your choice. Default token generating function is given below.
+
+```js
+jwt: (user) => {
+  return {
+    accessToken: user.accessToken,
+    user: {
+      ...user.user,
+      originalUser: undefined,
+    },
+  };
+};
+```

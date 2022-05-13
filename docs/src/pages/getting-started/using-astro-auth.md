@@ -51,6 +51,8 @@ export const all = AstroAuth({
 
 > Make sure you have added `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to your `.env` file.
 
+> When generating your Google credentials, make sure to set the redirect URL as `YOUR_DOMAIN/api/auth/oauth/google`. So if you're using local host, put the redirect URL as `http://localhost:3000/api/auth/oauth/google`. You can read more about redirect URLs in the providers section
+
 ### 3. The UI
 
 For the UI, you can use the Astro themed UI elements that we have provided.(Please note that UI components are currently in beta and it is only working with react but you can definitely use the authentication with other frameworks as well. **However you will need a UI library in order to use the authentication**)

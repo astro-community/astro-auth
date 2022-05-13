@@ -21,7 +21,7 @@ const getServerUser = (request: Request, user?: (user: any) => any) => {
 
   return {
     status: 200,
-    body: user ? user(payload) : payload,
+    body: newPayload,
     headers: {
       "Set-Cookie": `__astroauth__session__=${newJWT}; HttpOnly; Path=/;`,
     },
