@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/cli",
-  "version": "1.2.1",
+  "version": "1.2.4",
   "description": "",
   "main": "dist/index.js",
   "bin": "dist/index.js",
@@ -9,7 +9,12 @@
     "dev": "tsc -w",
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "astro",
+    "astro-auth",
+    "astro-auth-cli",
+    "authentication"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
