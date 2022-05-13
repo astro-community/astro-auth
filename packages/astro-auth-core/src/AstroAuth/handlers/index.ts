@@ -1,5 +1,6 @@
 import { AstroAuthParams } from "..";
 import parseCookie from "../../utils/parseCookieString";
+import getServerUser from "./getServerUser";
 import OAuthCallback from "./oauthCallback";
 import signIn from "./signIn";
 import signOut from "./signout";
@@ -35,12 +36,11 @@ const astroAuthHandler = async (
     case "signout": {
       return signOut(request);
     }
+    case "user": {
+      return getServerUser(request, config.hooks?.account);
+    }
     default: {
-      // console.log(request);
-
       if (url.startsWith("oauth")) {
-        console.log("🚀");
-
         const oauthConfig = config.authProviders?.find(
           (provider) => provider.id === url.split("/")[1]
         );

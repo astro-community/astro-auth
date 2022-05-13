@@ -58,7 +58,7 @@ const OAuthCallback = async (
 
   try {
     const cookies = parseCookie(request.headers.get("cookie") ?? "");
-    console.log("HERE");
+
     const user = await getUserDetails(oauthConfig, code, cookies);
 
     const generatedData = generateJWT
@@ -78,18 +78,6 @@ const OAuthCallback = async (
 
     return { user, encodedJWT };
   } catch (error: any) {
-    if (redirectError) {
-      const redirectURL = redirectError(new Error(error.toString()));
-
-      return {
-        status: 307,
-        headers: {
-          "Content-Type": undefined,
-          Location: `${redirectURL}/?error=${oauthConfig.name} OAuth Error`,
-        },
-      };
-    }
-
     throw new Error(error.toString());
   }
 };

@@ -16,7 +16,7 @@ interface IntroSectionProps {
 }
 
 const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
-  const storedUser = ReactStateStore.useStore();
+  const storedUser = ReactStateStore.useUser({ update: true });
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);

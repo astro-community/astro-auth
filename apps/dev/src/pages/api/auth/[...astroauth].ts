@@ -38,15 +38,12 @@ export const all = AstroAuth({
   ],
   hooks: {
     jwt: (user) => {
-      if (user.provider == "credential") {
-        return user;
-      }
-
       return {
-        accessToken: user.accessToken,
+        accessToken: user.access_token,
+        refreshToken: user.refresh_token,
         user: {
           ...user.user,
-          originalUser: user.user.originalUser,
+          originalUser: undefined,
         },
       };
     },
@@ -56,6 +53,12 @@ export const all = AstroAuth({
     redirectError: (error) => {
       console.log(error.message);
       return "/";
+    },
+    account: (user) => {
+      return {
+        ...user,
+        isGood: Math.random() >= 0.5,
+      };
     },
   },
 });

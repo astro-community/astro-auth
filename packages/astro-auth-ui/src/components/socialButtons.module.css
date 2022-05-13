@@ -1,4 +1,6 @@
 .button {
+  border: none;
+  background: none;
   position: relative;
   --border-radius: 8;
   --pixel-size: 4;
@@ -12,10 +14,12 @@
   align-items: center;
   padding-top: 1rem;
   transition: 0.2s transform, 0.2s background;
+  font-family: "RTAliasMedium", monospace;
 
   --link-color-stop-a: #1d5bfc;
   --link-color-stop-b: #c238bd;
 }
+
 
 .button img {
   margin-right: 0.5rem;

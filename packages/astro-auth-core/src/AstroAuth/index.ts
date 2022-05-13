@@ -7,17 +7,16 @@ export interface AstroAuthParams {
     jwt?: (user: any) => any;
     signIn?: (user: any) => boolean | string;
     redirectError?: (error: Error) => string;
+    account?: (user: any) => any;
   };
 }
 
 interface AuthHandlerResponse {
   status?: number;
   body?: any;
-  headers?:
-    | {
-        [key: string]: string | undefined | string[];
-      }
-    | Headers;
+  headers?: {
+    [key: string]: string | undefined | string[];
+  };
 }
 
 const AstroAuth = (astroAuthParams: AstroAuthParams) => {

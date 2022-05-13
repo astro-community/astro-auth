@@ -1,4 +1,7 @@
 .button {
+  border: none;
+  background: none;
+  font-family: "RTAliasMedium", monospace;
   position: relative;
   --border-radius: 8;
   --pixel-size: 4;
