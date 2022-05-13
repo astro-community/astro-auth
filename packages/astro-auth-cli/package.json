@@ -1,7 +1,7 @@
 {
   "name": "@astro-auth/cli",
-  "version": "1.2.4",
-  "description": "",
+  "version": "1.2.5",
+  "description": "The CLI tool of the Astro Auth library",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {

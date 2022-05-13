@@ -16,9 +16,9 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@astro-auth/client": "1.0.0",
-    "@astro-auth/core": "1.0.0",
-    "@astro-auth/providers": "1.0.0",
-    "@astro-auth/ui": "1.0.0"
+    "@astro-auth/client": "1.0.1",
+    "@astro-auth/core": "1.0.3",
+    "@astro-auth/providers": "1.0.1",
+    "@astro-auth/ui": "1.0.1"
   }
 }

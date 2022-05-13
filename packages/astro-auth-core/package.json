@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/core",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "The core package of the Astro Auth library",
   "main": "dist/index.js",
   "type": "module",
@@ -10,6 +10,11 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "astro-component",
+    "astro-auth",
+    "astro-auth-core"
+  ],
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -17,7 +22,7 @@
     "dev": "rollup -c -w"
   },
   "devDependencies": {
-    "@astro-auth/types": "1.0.0",
+    "@astro-auth/types": "1.0.1",
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.2.0",
