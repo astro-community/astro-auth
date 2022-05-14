@@ -50,13 +50,14 @@ export const SIDEBAR = {
     { text: "Redirect Error Hook", link: "hooks/redirectError" },
 
     { text: "UI", header: true },
+    { text: "Instructions", link: "ui-library/instructions" },
     { text: "Button", link: "ui-library/button" },
     { text: "Title", link: "ui-library/title" },
     { text: "Provider Buttons", link: "ui-library/provider-buttons" },
 
     { text: "Core", header: true },
     { text: "Get User", link: "core/get-user" },
-    { text: "Redirect User", link: "core/get-error" },
+    { text: "Redirect User", link: "core/redirect-user" },
     { text: "Get Error", link: "core/get-error" },
 
     { text: "Client", header: true },

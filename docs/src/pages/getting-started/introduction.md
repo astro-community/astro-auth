@@ -5,7 +5,7 @@ layout: ../../layouts/MainLayout.astro
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/osadavc/astro-auth/master/docs/public/astroauth_bg.png?token=GHSAT0AAAAAABLHC2RY3WJCGLNM7UTPMA2CYTDVLPA"/>
+  <img src="/astroauth/astroauth-tp.png"/>
 </p>
 
 ## About Astro Auth 🧑🏻‍🚀

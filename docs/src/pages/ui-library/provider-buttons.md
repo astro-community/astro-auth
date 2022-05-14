@@ -4,8 +4,6 @@ description: Learn About Provider Button Components
 layout: ../../layouts/MainLayout.astro
 ---
 
-> Before proceeding, please note that the UI library is still in beta and only works with react.
-
 Provider Buttons are components that are included in the `@astro-auth/ui` library and the button looks exactly similar to the Buttons in the [astro.build](https://astro.build) official website. You have each Provider Button for each provider that is included in the `@astro-auth/providers` library.
 
 You can use the Google button like this,
