@@ -41,7 +41,7 @@ const signIn = async (
     }
 
     const generatedData = generateJWT
-      ? generateJWT({ ...user, provider: config.id })
+      ? await generateJWT({ ...user, provider: config.id })
       : user;
 
     const encodedJWT = await jwt.sign(

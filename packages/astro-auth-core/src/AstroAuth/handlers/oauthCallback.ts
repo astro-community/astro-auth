@@ -22,7 +22,7 @@ const OAuthCallback = async (
 
   if (!oauthConfig) {
     if (redirectError) {
-      const redirectURL = redirectError(
+      const redirectURL = await redirectError(
         new Error("Provider Is Not Configured")
       );
 
@@ -40,7 +40,7 @@ const OAuthCallback = async (
 
   if (!code) {
     if (redirectError) {
-      const redirectURL = redirectError(
+      const redirectURL = await redirectError(
         new Error(`${oauthConfig.name} OAuth Error`)
       );
 
@@ -62,7 +62,7 @@ const OAuthCallback = async (
     const user = await getUserDetails(oauthConfig, code, cookies);
 
     const generatedData = generateJWT
-      ? generateJWT({ ...user, provider: oauthConfig.id })
+      ? await generateJWT({ ...user, provider: oauthConfig.id })
       : {
           accessToken: user.access_token,
           user: {

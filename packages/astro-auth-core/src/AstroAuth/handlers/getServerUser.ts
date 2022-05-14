@@ -1,7 +1,7 @@
 import parseCookie from "../../utils/parseCookieString";
 import jwt from "jsonwebtoken";
 
-const getServerUser = (request: Request, user?: (user: any) => any) => {
+const getServerUser = async (request: Request, user?: (user: any) => any) => {
   const cookies = parseCookie(request.headers.get("cookie") || "");
   const session = cookies["__astroauth__session__"];
 
@@ -16,7 +16,7 @@ const getServerUser = (request: Request, user?: (user: any) => any) => {
 
   const payload = jwt.verify(session, import.meta.env.ASTROAUTH_SECRET);
 
-  const newPayload = user ? user(payload) : payload;
+  const newPayload = user ? await user(payload) : payload;
   const newJWT = jwt.sign(newPayload, import.meta.env.ASTROAUTH_SECRET);
 
   return {

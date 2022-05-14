@@ -60,7 +60,7 @@ const astroAuthHandler = async (
 
         // This could be a boolean or a string
         const shouldUserLoginHookResponse = config.hooks?.signIn
-          ? config.hooks?.signIn(user)
+          ? await config.hooks?.signIn(user)
           : null;
 
         const shouldUserLogin = config.hooks?.signIn
