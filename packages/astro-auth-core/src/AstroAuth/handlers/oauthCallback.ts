@@ -9,7 +9,7 @@ const OAuthCallback = async (
   oauthConfig?: OAuthConfig,
   code?: string,
   generateJWT?: (user: any) => any,
-  redirectError?: (error: Error) => string
+  redirectError?: ((error: Error) => Promise<string>) | undefined
 ) => {
   if (request.method != "GET") {
     return {

@@ -26,7 +26,7 @@ Astro Auth is consists of 5 main packages namely,
 
 ### New Project
 
-This is the easiest way to get started. You can simply clone the example Astro Auth repository to get started.
+This is the easiest way to get started. You can simply clone the example Astro Auth repository to get started. (It is highly suggested to NOT use `apps/dev` as an example because that is a development environment for the actual package)
 
 ```bash
 git clone https://github.com/osadavc/astro-auth-example.git astro-auth

@@ -27,7 +27,7 @@ export const all = AstroAuth({
   ],
   hooks: {
     // jwt hook has a argument with all the user info
-    jwt: (user) => {
+    jwt: async (user) => {
       return {
         accessToken: user.accessToken,
         user: {

@@ -20,7 +20,7 @@ export const all = AstroAuth({
     }),
   ],
   hooks: {
-    redirectError: (error) => {
+    redirectError: async (error) => {
       console.log(error.message);
       return "/";
     },

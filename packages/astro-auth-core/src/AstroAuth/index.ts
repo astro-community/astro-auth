@@ -4,10 +4,10 @@ import astroAuthHandler from "./handlers/index";
 export interface AstroAuthParams {
   authProviders?: (OAuthConfig | CredentialConfig)[];
   hooks?: {
-    jwt?: (user: any) => any;
-    signIn?: (user: any) => boolean | string;
-    redirectError?: (error: Error) => string;
-    account?: (user: any) => any;
+    jwt?: (user: any) => Promise<any>;
+    signIn?: (user: any) => Promise<boolean | string>;
+    redirectError?: (error: Error) => Promise<string>;
+    account?: (user: any) => Promise<any>;
   };
 }
 

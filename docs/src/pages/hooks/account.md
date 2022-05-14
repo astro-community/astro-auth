@@ -26,7 +26,7 @@ export const all = AstroAuth({
     }),
   ],
   hooks: {
-    jwt: (user) => {
+    jwt: async (user) => {
       return {
         accessToken: user.accessToken,
         user: {
@@ -35,7 +35,7 @@ export const all = AstroAuth({
         },
       };
     },
-    account: (user) => {
+    account: async (user) => {
       return {
         ...user,
         isGood: Math.random() >= 0.5,

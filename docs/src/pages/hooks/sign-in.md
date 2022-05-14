@@ -25,7 +25,7 @@ export const all = AstroAuth({
   ],
   hooks: {
     // signIn hook has a argument with all the user info
-    signIn: (user) => {
+    signIn: async (user) => {
       return true;
     },
   },

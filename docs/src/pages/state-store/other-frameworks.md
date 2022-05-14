@@ -30,3 +30,5 @@ At the moment, in frameworks other than react, there is no way to preserve the s
 ```
 
 You can use the same method to do the same thing in other frameworks.
+
+> **DO NOT USE THIS METHOD IN REACT.**

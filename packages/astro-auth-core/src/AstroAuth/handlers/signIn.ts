@@ -10,7 +10,7 @@ const signIn = async (
   callback: string,
   config?: OAuthConfig | CredentialConfig,
   generateJWT?: (user: any) => any,
-  redirectError?: (error: Error) => string
+  redirectError?: ((error: Error) => Promise<string>) | undefined
 ) => {
   if (request.method != "POST") {
     return {
@@ -63,7 +63,7 @@ const signIn = async (
 
   if (!config) {
     if (redirectError) {
-      const redirectURL = redirectError(
+      const redirectURL = await redirectError(
         new Error("Provider Is Not Configured")
       );
 
