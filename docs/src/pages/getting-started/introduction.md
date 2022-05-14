@@ -23,7 +23,7 @@ Astro Auth Is A Feature Complete, Developer Friendly Authentication Library For 
 
 ## Getting Started
 
-Check the [Sample Apps](https://google.com) to see how easy it is to get started with Astro Auth or read the [Get Started Guide](getting-started) to learn more about Astro Auth.
+Check the [Sample App](https://github.com/osadavc/astro-auth-example) to see how easy it is to get started with Astro Auth or read the [Get Started Guide](getting-started) to learn more about Astro Auth.
 
 ## Credits
 
