@@ -17,8 +17,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			<SidebarToggle client:idle />
 		</div>
 		<div class="logo flex">
-				<!-- <img src="/astroauth.png" alt="Astro Auth Logo" class="logo_img" onclick="location.href='/'"> -->
-				<a href="/"><h1>Astro Auth</h1></a>
+				<img src="/astroauth/astroauth-tp.png" alt="Astro Auth Logo" class="logo_img" onclick="location.href='/'">
 		</div>
 		<div style="flex-grow: 1;"></div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}

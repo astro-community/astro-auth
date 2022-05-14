@@ -32,7 +32,6 @@ export const GITHUB_EDIT_URL =
 
 export const SIDEBAR = {
   en: [
-    { text: "", header: true },
     { text: "Getting Started", header: true },
     { text: "Introduction", link: "getting-started/introduction" },
     { text: "Getting Started", link: "getting-started/getting-started" },
@@ -67,17 +66,10 @@ export const SIDEBAR = {
 
     { text: "State Store", header: true },
     { text: "React", link: "state-store/react" },
-    { text: "Others", link: "state-store/others" },
+    { text: "Other Frameworks", link: "state-store/other-frameworks" },
 
     { text: "Providers", header: true },
-    { text: "Google Provider", link: "providers/google" },
-    { text: "Discord Provider", link: "providers/discord" },
-    { text: "Facebook Provider", link: "providers/facebook" },
-    { text: "Github Provider", link: "providers/github" },
-    { text: "Instagram Provider", link: "providers/instagram" },
-    { text: "Spotify Provider", link: "providers/spotify" },
-    { text: "Twitter Provider", link: "providers/twitter" },
-    { text: "Zoom Provider", link: "providers/zoom" },
+    { text: "OAuth Provider", link: "providers/oauth" },
     { text: "Credentials Provider", link: "providers/credentials" },
   ],
 };
