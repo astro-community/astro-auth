@@ -28,6 +28,26 @@ body {
 	font-size: clamp(0.9rem, 0.75rem + 0.375vw + var(--user-font-scale), 1rem);
 	line-height: 1.5;
 	max-width: 100vw;
+	overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #555;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: 5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
 }
 
 nav ul {
