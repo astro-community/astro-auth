@@ -17,7 +17,7 @@ export const all = AstroAuth({
   authProviders: [
     CredentialProvider({
       // Here, we are simply checking if the email matches and allow the user to login
-      authorize: (properties) => {
+      authorize: async (properties) => {
         if (properties.email == "osadavidath@gmail.com") {
           return properties;
         }

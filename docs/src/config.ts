@@ -42,6 +42,12 @@ export const SIDEBAR = {
     { text: "Astro Auth CLI", link: "getting-started/astro-auth-cli" },
     { text: "Typescript Support", link: "getting-started/typescript-support" },
 
+    { text: "Core", header: true },
+    { text: "Get User", link: "core/get-user" },
+    { text: "Redirect User", link: "core/redirect-user" },
+    { text: "Get Error", link: "core/get-error" },
+    { text: "Hooks", link: "hooks/jwt" },
+
     { text: "Hooks", header: true },
     { text: "JWT Hook", link: "hooks/jwt" },
     { text: "Sign In Hook", link: "hooks/sign-in" },
@@ -53,11 +59,6 @@ export const SIDEBAR = {
     { text: "Button", link: "ui-library/button" },
     { text: "Title", link: "ui-library/title" },
     { text: "Provider Buttons", link: "ui-library/provider-buttons" },
-
-    { text: "Core", header: true },
-    { text: "Get User", link: "core/get-user" },
-    { text: "Redirect User", link: "core/redirect-user" },
-    { text: "Get Error", link: "core/get-error" },
 
     { text: "Client", header: true },
     { text: "Sign In", link: "client/signIn" },
@@ -71,5 +72,6 @@ export const SIDEBAR = {
     { text: "Providers", header: true },
     { text: "OAuth Provider", link: "providers/oauth" },
     { text: "Credentials Provider", link: "providers/credentials" },
+    { text: "Metamask Provider", link: "providers/metamask" },
   ],
 };

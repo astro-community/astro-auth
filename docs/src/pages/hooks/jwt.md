@@ -40,6 +40,8 @@ export const all = AstroAuth({
 });
 ```
 
+> You might need to check the provider with `user.provider` and response according to the provider that user is requesting if you have providers that return different data like `CredentialsProvider` or `MetamaskProvider`
+
 As you can see, you will get the `user` as a argument. You can alter the contents of the token by returning a new object. THe passed user object will look something like this
 
 ```js
