@@ -5,6 +5,7 @@
     "astrojs",
     "behaviour",
     "builtins",
+    "Inpage",
     "nanostores",
     "pkce",
     "preact",

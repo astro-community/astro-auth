@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/core",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "The core package of the Astro Auth library",
   "main": "dist/index.js",
   "type": "module",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@astro-auth/types": "1.0.1",
+    "ethers": "^5.6.6",
     "jsonwebtoken": "^8.5.1",
     "openid-client": "^5.1.5"
   }

@@ -6,6 +6,7 @@ import {
   DiscordButton,
   TwitterButton,
   GithubButton,
+  MetamaskButton,
 } from "@astro-auth/ui";
 import { signIn, signOut, ReactStateStore } from "@astro-auth/client";
 import styles from "./index.module.css";
@@ -67,6 +68,8 @@ const IntroSection: FC<IntroSectionProps> = ({ isSignIn = false, user }) => {
           >
             LOGIN
           </button>
+
+          <MetamaskButton />
         </div>
       )}
 

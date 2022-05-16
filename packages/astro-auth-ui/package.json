@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "description": "The UI package of the Astro Auth library",
   "author": "Osada Vidath <osadavidath@gmail.com>",
@@ -30,7 +30,7 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "@astro-auth/client": "1.0.1"
+    "@astro-auth/client": "1.0.3"
   },
   "peerDependencies": {
     "react": "^18.0.0"

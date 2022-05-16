@@ -5,6 +5,7 @@ import {
   CredentialProvider,
   TwitterProvider,
   GithubProvider,
+  MetamaskProvider,
 } from "@astro-auth/providers";
 
 export const all = AstroAuth({
@@ -35,9 +36,17 @@ export const all = AstroAuth({
         return null;
       },
     }),
+    MetamaskProvider({
+      authorize: async (properties) => properties,
+      signMessage: "Hello From Astro Auth",
+    }),
   ],
   hooks: {
-    jwt: (user) => {
+    jwt: async (user) => {
+      if (user.provider == "metamask") {
+        return user;
+      }
+
       return {
         accessToken: user.access_token,
         refreshToken: user.refresh_token,
@@ -47,10 +56,10 @@ export const all = AstroAuth({
         },
       };
     },
-    signIn: () => {
+    signIn: async () => {
       return true;
     },
-    redirectError: (error) => {
+    redirectError: async (error) => {
       console.log(error.message);
       return "/";
     },

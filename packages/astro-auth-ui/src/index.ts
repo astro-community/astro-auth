@@ -12,6 +12,8 @@ import InstagramButton from "./components/InstagramButton";
 import SpotifyButton from "./components/SpotifyButton";
 import ZoomButton from "./components/ZoomButton";
 
+import MetamaskButton from "./components/MetamaskButton";
+
 import astroAuthComponents from "./utils/astroAuthComponents";
 
 export {
@@ -26,4 +28,5 @@ export {
   InstagramButton,
   SpotifyButton,
   ZoomButton,
+  MetamaskButton,
 };

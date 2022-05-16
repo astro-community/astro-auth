@@ -1,8 +1,12 @@
-import { OAuthConfig, CredentialConfig } from "@astro-auth/types";
+import {
+  OAuthConfig,
+  CredentialConfig,
+  MetamaskConfig,
+} from "@astro-auth/types";
 import astroAuthHandler from "./handlers/index";
 
 export interface AstroAuthParams {
-  authProviders?: (OAuthConfig | CredentialConfig)[];
+  authProviders?: (OAuthConfig | CredentialConfig | MetamaskConfig)[];
   hooks?: {
     jwt?: (user: any) => Promise<any>;
     signIn?: (user: any) => Promise<boolean | string>;

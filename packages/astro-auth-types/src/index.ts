@@ -21,7 +21,7 @@ export interface OAuthConfig {
 }
 
 export interface CredentialUserOptions {
-  authorize: (properties: any) => any;
+  authorize: (properties: any) => Promise<any>;
 }
 
 export interface CredentialConfig {
@@ -30,8 +30,20 @@ export interface CredentialConfig {
   options: CredentialUserOptions;
 }
 
+export interface MetamaskUserOptions {
+  signMessage: string;
+  authorize: (properties: any) => Promise<any>;
+}
+
+export interface MetamaskConfig {
+  id: "metamask";
+  type: "metamask";
+  options: MetamaskUserOptions;
+}
+
 export type Providers =
   | "credential"
+  | "metamask"
   | "google"
   | "discord"
   | "twitter"

@@ -8,6 +8,7 @@ import SpotifyProvider from "./providers/SpotifyProvider";
 import ZoomProvider from "./providers/ZoomProvider";
 
 import CredentialProvider from "./providers/CredentialProvider";
+import MetamaskProvider from "./providers/MetamaskProvider";
 
 export {
   GoogleProvider,
@@ -19,4 +20,5 @@ export {
   SpotifyProvider,
   ZoomProvider,
   CredentialProvider,
+  MetamaskProvider,
 };

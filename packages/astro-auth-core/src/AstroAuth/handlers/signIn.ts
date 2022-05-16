@@ -1,14 +1,20 @@
-import { OAuthConfig, CredentialConfig } from "@astro-auth/types";
+import {
+  OAuthConfig,
+  CredentialConfig,
+  MetamaskConfig,
+} from "@astro-auth/types";
 import openIdClient from "../../lib/oauth/client";
 import jwt from "jsonwebtoken";
 import { getPKCE } from "../../lib/oauth/pkceUtils";
 import { getState } from "../../lib/oauth/stateUtils";
 import getURLSlash from "../../utils/getURLSlash";
+import { ethers } from "ethers";
+import getMessageToSign from "./getMessageToSign";
 
 const signIn = async (
   request: Request,
   callback: string,
-  config?: OAuthConfig | CredentialConfig,
+  config?: OAuthConfig | CredentialConfig | MetamaskConfig,
   generateJWT?: (user: any) => any,
   redirectError?: ((error: Error) => Promise<string>) | undefined
 ) => {
@@ -27,6 +33,51 @@ const signIn = async (
     const user = await config.options.authorize(loginDetails);
 
     if (!user) {
+      return {
+        status: 401,
+        headers: {
+          "Content-Type": undefined,
+          "Set-Cookie":
+            "__astroauth__session__=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT",
+        },
+        body: {
+          redirect: "/?error=Wrong Credentials",
+        },
+      };
+    }
+
+    const generatedData = generateJWT
+      ? await generateJWT({ ...user, provider: config.id })
+      : user;
+
+    const encodedJWT = await jwt.sign(
+      generatedData,
+      import.meta.env.ASTROAUTH_SECRET
+    );
+
+    return {
+      status: 200,
+      headers: {
+        "Content-Type": undefined,
+        "Set-Cookie": `__astroauth__session__=${encodedJWT}; path=/; HttpOnly; Path=/;`,
+      },
+      body: {
+        redirect: callback,
+      },
+    };
+  }
+
+  if (config?.type == "metamask") {
+    const loginDetails = (await request.json().catch(() => {})).login;
+
+    const signatureAddress = await ethers.utils.verifyMessage(
+      getMessageToSign(config.options.signMessage),
+      loginDetails.signature
+    );
+
+    const user = await config.options.authorize(loginDetails);
+
+    if (!user || signatureAddress != user.address) {
       return {
         status: 401,
         headers: {
