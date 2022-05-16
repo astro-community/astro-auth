@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/providers",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "type": "module",
   "description": "The providers package of the Astro Auth library",
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "qs": "^6.10.3",
-    "@astro-auth/types": "1.0.1"
+    "@astro-auth/types": "1.0.2"
   }
 }
