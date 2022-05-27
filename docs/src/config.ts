@@ -73,5 +73,8 @@ export const SIDEBAR = {
     { text: "OAuth Provider", link: "providers/oauth" },
     { text: "Credentials Provider", link: "providers/credentials" },
     { text: "Metamask Provider", link: "providers/metamask" },
+
+    { text: "Extra", header: true },
+    { text: "Database Integration", link: "extra/database-integration" },
   ],
 };

@@ -25,7 +25,7 @@ At the moment, in frameworks other than react, there is no way to preserve the s
 </script>
 
 <template>
-  <button @click="count++">{{JSON.stringify(user)}}</button>
+  <pre>{{JSON.stringify(user)}}</pre>
 </template>
 ```
 

@@ -16,7 +16,7 @@ Astro Auth is consists of 5 main packages namely,
 
 3. `@astro-auth/ui` (In Beta) - [NPM Package](https://www.npmjs.com/package/@astro-auth/ui) - This package contains the Astro Themed UI Elements that you can use to easily get started with Astro Auth.
 
-4. `@astro-auth/providers` - [NPM Package](https://www.npmjs.com/package/@astro-auth/providers) - This package contains all the prebuilt OAuth providers that comes with Astro Auth.
+4. `@astro-auth/providers` - [NPM Package](https://www.npmjs.com/package/@astro-auth/providers) - This package contains all the prebuilt auth providers that comes out of the box with Astro Auth.
 
 5. `@astro-auth/cli` - [NPM Package](https://www.npmjs.com/package/@astro-auth/cli) - This package contains the CLI tool that you can use to get started with Astro Auth in a matter of seconds.
 
@@ -29,7 +29,7 @@ Astro Auth is consists of 5 main packages namely,
 This is the easiest way to get started. You can simply clone the example Astro Auth repository to get started. (It is highly suggested to NOT use `apps/dev` as an example because that is a development environment for the actual package)
 
 ```bash
-git clone https://github.com/osadavc/astro-auth-example.git astro-auth
+git clone https://github.com/osadavc/astro-auth-example.git
 ```
 
 ### Existing Project

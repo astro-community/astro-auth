@@ -15,11 +15,11 @@ Read the [Getting Started](/getting-started) section to know how to setup Astro 
 First will install some more libraries from Astro Auth toolkit to make our lives a little bit easier. Use one of those commands to install the libraries.
 
 ```bash
-npm install @astro-auth/client @astro-auth/providers @astro-auth/ui
+npm install @astro-auth/core @astro-auth/client @astro-auth/providers @astro-auth/ui
 ```
 
 ```bash
-yarn add @astro-auth/client @astro-auth/providers @astro-auth/ui
+yarn add @astro-auth/core @astro-auth/client @astro-auth/providers @astro-auth/ui
 ```
 
 The client package will make it a lot easier to communicate with the authentication backend. The providers package will provide us with many different **pre configured** OAuth providers. The UI package will provide us with the UI elements that we can use to build our login page. (Please note that the UI package is not mandatory and you can use it or not based on your requirements.)
@@ -73,12 +73,12 @@ const Login = () => {
       // If you are not using the UI Library, you will need to add the following
       code
       <button
-        onClick={() =>
+        onClick={() => {
           signIn({
             provider: "google",
             callbackURL: "https://youtu.be/dQw4w9WgXcQ",
-          })
-        }
+          });
+        }}
       >
         Login with Google
       </button>

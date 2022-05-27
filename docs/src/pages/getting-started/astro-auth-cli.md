@@ -19,7 +19,7 @@ Using the above command, you can generate a Astro Auth configuration file in you
 > If you want to learn more about state stores, look at [this](/state-store/react) section.
 
 ```bash
-npx @astro-auth/cli --state
+npx @astro-auth/cli -state
 ```
 
 This will create the component that you will need to initialize your state store.
