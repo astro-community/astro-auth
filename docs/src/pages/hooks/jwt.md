@@ -72,7 +72,7 @@ Using this way, you can customize the contents of the token in any way that you 
 If you want to customize the token by using the default token as a template, you can copy the default token's generating function and modify it according to your choice. Default token generating function is given below.
 
 ```js
-jwt: (user) => {
+jwt: async (user) => {
   return {
     accessToken: user.accessToken,
     user: {

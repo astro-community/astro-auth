@@ -8,6 +8,19 @@ layout: ../../layouts/MainLayout.astro
 
 OAuth providers will probably be the most common reason for developers to use Astro Auth. Astro Auth supports PKCE security mechanism as well.
 
+## OAuth Providers
+
+Inside the `@astro-auth/provider` package, you will find 8 OAuth providers including their own UI components in the `@astro-auth/ui` package. Here is the list of OAuth providers:
+
+1. GoogleProvider
+2. DiscordProvider
+3. TwitterProvider
+4. FacebookProvider
+5. GithubProvider
+6. InstagramProvider
+7. SpotifyProvider
+8. ZoomProvider
+
 ## Example For Using Discord OAuth
 
 src/pages/api/auth/[...astroauth.ts]
