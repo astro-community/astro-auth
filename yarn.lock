@@ -132,6 +132,40 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
+"@astro-auth/client@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@astro-auth/client/-/client-1.0.3.tgz#7a76ae22f13014e4b3e4b051646745a8020613ac"
+  integrity sha512-fF48vURWPDrTO4hQsbP9OZ/NYoyk0IWqqn1q9c50NXIxAPnPfMMh6SdWkRew86j5KpgWOai3cXgLEKAUDDPyQA==
+  dependencies:
+    "@metamask/providers" "^8.1.1"
+    "@nanostores/react" "^0.2.0"
+    ethers "^5.6.6"
+    nanostores "^0.5.12"
+    redaxios "^0.4.1"
+
+"@astro-auth/core@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@astro-auth/core/-/core-1.0.11.tgz#7c863564d09acbf54e7179cb2f6760b541ea2847"
+  integrity sha512-gpskMBTgmYp5osDZTA2WToYy0MNKuJ3LSBKU5mRQ11FoPJMTBRsW1v+4yMDJlECswaiJrcJfpnH7aeeJ6u+pdA==
+  dependencies:
+    "@astro-auth/types" "1.0.1"
+    ethers "^5.6.6"
+    jsonwebtoken "^8.5.1"
+    openid-client "^5.1.5"
+
+"@astro-auth/providers@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@astro-auth/providers/-/providers-1.0.5.tgz#453fe378f77997985cfa6f742243a63d57cc9374"
+  integrity sha512-DftTjbKET9fwMWNqAlXachM2FByhWzHpabNRZ5FZz3+7zpTG0lkEM9ZYhpluKAD9Sj4zh8+rd+SO5vA036lCSA==
+  dependencies:
+    "@astro-auth/types" "1.0.1"
+    qs "^6.10.3"
+
+"@astro-auth/types@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@astro-auth/types/-/types-1.0.1.tgz#3298c8295f148c12b6ab62d44c4b5c9d1aea5196"
+  integrity sha512-0QWbHyXaKd0QSmKtVJPvfN/rxZJjN+83lh3hQTvwLNzFBWkvbms0kbsJGk8WDLCdE+oSqwZeISikb+gv6kkQjg==
+
 "@astrojs/compiler@^0.14.1":
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.14.1.tgz#7dade245ef69a49bb80cb29682b820f3ebc306d9"

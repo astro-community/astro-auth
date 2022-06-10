@@ -1,5 +1,4 @@
 import { Providers } from "@astro-auth/types";
-import axios from "redaxios";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import { ethers } from "ethers";
 
@@ -42,7 +41,14 @@ const signIn = async ({
     const provider = new ethers.providers.Web3Provider(window.ethereum as any);
     const signer = provider.getSigner();
 
-    const { data } = await axios.get("api/auth/sign-message");
+    const response = await fetch("api/auth/sign-message");
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        error: data.error,
+      };
+    }
 
     const signature = await signer.signMessage(data.message);
     const address = await signer.getAddress();
@@ -53,13 +59,22 @@ const signIn = async ({
     };
   }
 
-  const { data } = await axios
-    .post("/api/auth/signin", {
+  const response = await fetch("api/auth/signin", {
+    method: "POST",
+    body: JSON.stringify({
       provider,
       callback: callbackURL ?? location.href,
       login: login ?? metamaskInfo,
-    })
-    .catch((err) => err);
+    }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    return {
+      error: data.error,
+    };
+  }
 
   if (window.location) {
     location.href = data.loginURL || data.redirect;

@@ -1,6 +1,6 @@
 {
   "name": "@astro-auth/client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "type": "module",
   "description": "The client package of the Astro Auth library",
@@ -39,7 +39,6 @@
     "@metamask/providers": "^8.1.1",
     "@nanostores/react": "^0.2.0",
     "ethers": "^5.6.6",
-    "nanostores": "^0.5.12",
-    "redaxios": "^0.4.1"
+    "nanostores": "^0.5.12"
   }
 }
