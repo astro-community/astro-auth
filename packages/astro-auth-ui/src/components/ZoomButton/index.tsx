@@ -25,7 +25,7 @@ const ZoomButton: FC<ZoomButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Zoom"}</span>
     </button>
   );
 };

@@ -25,7 +25,7 @@ const InstagramButton: FC<InstagramButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Instagram"}</span>
     </button>
   );
 };

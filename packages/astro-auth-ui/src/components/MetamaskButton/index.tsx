@@ -14,7 +14,7 @@ const MetamaskButton: FC<MetamaskButtonProps> = ({
   onClick = () =>
     signIn({
       provider: "metamask",
-      // callbackURL: callbackURL,
+      callbackURL: callbackURL,
     }),
 }) => {
   return (
@@ -25,7 +25,7 @@ const MetamaskButton: FC<MetamaskButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Metamask"}</span>
     </button>
   );
 };

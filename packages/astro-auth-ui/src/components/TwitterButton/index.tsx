@@ -17,16 +17,6 @@ const TwitterButton: FC<TwitterButtonProps> = ({
       callbackURL: callbackURL,
     }),
 }) => {
-  // TODO: Uncomment If pixelated border isn't working
-  // useEffect(() => {
-  //   if ("paintWorklet" in CSS) {
-  //     // @ts-ignore
-  //     CSS.paintWorklet.addModule(
-  //       "http://yourjavascript.com/12922541814/pixel.js"
-  //     );
-  //   }
-  // }, []);
-
   return (
     <button className={styles.button} onClick={onClick}>
       <img
@@ -35,7 +25,7 @@ const TwitterButton: FC<TwitterButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Twitter"}</span>
     </button>
   );
 };

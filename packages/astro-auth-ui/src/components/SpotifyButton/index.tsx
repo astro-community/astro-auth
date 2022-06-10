@@ -25,7 +25,7 @@ const SpotifyButton: FC<SpotifyButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Spotify"}</span>
     </button>
   );
 };

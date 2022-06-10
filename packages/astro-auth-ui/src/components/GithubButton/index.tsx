@@ -25,7 +25,7 @@ const GithubButton: FC<GithubButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Github"}</span>
     </button>
   );
 };

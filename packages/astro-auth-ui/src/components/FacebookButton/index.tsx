@@ -25,7 +25,7 @@ const FacebookButton: FC<FacebookButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Facebook"}</span>
     </button>
   );
 };

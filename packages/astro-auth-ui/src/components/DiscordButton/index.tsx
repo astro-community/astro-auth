@@ -25,7 +25,7 @@ const DiscordButton: FC<DiscordButtonProps> = ({
           width: "20px",
         }}
       />
-      <span>{children}</span>
+      <span>{children ?? "Login With Discord"}</span>
     </button>
   );
 };

@@ -14,12 +14,9 @@ import ZoomButton from "./components/ZoomButton";
 
 import MetamaskButton from "./components/MetamaskButton";
 
-import astroAuthComponents from "./utils/astroAuthComponents";
-
 export {
   Button,
   Title,
-  astroAuthComponents,
   GoogleButton,
   DiscordButton,
   TwitterButton,
