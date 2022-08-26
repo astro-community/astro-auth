@@ -26,6 +26,6 @@
     "src"
   ],
   "exports": {
-    ".": "./index.ts"
+    ".": "./src/index.ts"
   }
 }
