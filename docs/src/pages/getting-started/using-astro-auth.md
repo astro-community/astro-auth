@@ -28,7 +28,7 @@ At this point you should have all the packages install and ready go.
 
 ### 2. Edit Astro Auth Config
 
-Go to your `src/pages/api/auth/[...astroauth.js]` file and update the code as follows
+Go to your `src/pages/api/auth/[...astroauth].js` file and update the code as follows
 
 ```js
 import AstroAuth from "@astro-auth/core";
