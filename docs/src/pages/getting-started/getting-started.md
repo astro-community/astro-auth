@@ -8,7 +8,7 @@ layout: ../../layouts/MainLayout.astro
 
 ## Basics
 
-Astro Auth is consists of 5 main packages namely,
+Astro Auth consists of 5 main packages namely,
 
 1. `@astro-auth/core` - [NPM Package](https://www.npmjs.com/package/@astro-auth/core) - This package is the core of Astro Auth. It contains all the logic and logic related to Astro Auth.
 
