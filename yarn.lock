@@ -166,6 +166,13 @@
   resolved "https://registry.yarnpkg.com/@astro-auth/types/-/types-1.0.1.tgz#3298c8295f148c12b6ab62d44c4b5c9d1aea5196"
   integrity sha512-0QWbHyXaKd0QSmKtVJPvfN/rxZJjN+83lh3hQTvwLNzFBWkvbms0kbsJGk8WDLCdE+oSqwZeISikb+gv6kkQjg==
 
+"@astro-auth/ui@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@astro-auth/ui/-/ui-1.0.3.tgz#d53b4a134a002c769f7bdca31bf1881adfa1c3ba"
+  integrity sha512-G/RzWlLiNPvITWwgD79qOO0K1pMNHRQmgUI8ntmDPzPSxcyfZYY+FOi+W8law4Vw83xY7TQSNPZxNy6MZrfA6A==
+  dependencies:
+    "@astro-auth/client" "1.0.3"
+
 "@astrojs/compiler@^0.14.1":
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.14.1.tgz#7dade245ef69a49bb80cb29682b820f3ebc306d9"
