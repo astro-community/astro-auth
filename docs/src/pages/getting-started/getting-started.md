@@ -88,4 +88,4 @@ or go to this URL and generate a random one. [Generate Secret](https://generate-
 
 You have to install a Astro SSR adapter for Astro Auth to work because Astro Auth relies on SSR capabilities. You can read more about that [here](https://docs.astro.build/en/guides/server-side-rendering/).
 
-🎉 You're all set to start using Astro Auth. To learn how to use Astro Auth to authenticate users in your project, read the [Using Astro Auth](/using-astro-auth) section.
+🎉 You're all set to start using Astro Auth. To learn how to use Astro Auth to authenticate users in your project, read the [Using Astro Auth](using-astro-auth) section.
