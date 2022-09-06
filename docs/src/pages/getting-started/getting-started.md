@@ -56,7 +56,7 @@ yarn add @astro-auth/core
 
 2. Create API route to handle authentication
 
-Create `[...astroauth.js]` inside `src/pages/api/auth` directory and add the following starter code
+Create `[...astroauth].js` inside `src/pages/api/auth` directory and add the following starter code
 
 ```js
 import AstroAuth from "@astro-auth/core";
