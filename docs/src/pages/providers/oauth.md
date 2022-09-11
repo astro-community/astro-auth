@@ -23,7 +23,7 @@ Inside the `@astro-auth/provider` package, you will find 8 OAuth providers inclu
 
 ## Example For Using Discord OAuth
 
-src/pages/api/auth/[...astroauth.ts]
+src/pages/api/auth/[...astroauth].ts
 
 ```ts
 import AstroAuth from "@astro-auth/core";
