@@ -21,7 +21,7 @@ Inside the `@astro-auth/provider` package, you will find 8 OAuth providers inclu
 7. SpotifyProvider
 8. ZoomProvider
 
-## Example For Using Discord OAuth
+## Example For Using Github OAuth
 
 src/pages/api/auth/[...astroauth.ts]
 
