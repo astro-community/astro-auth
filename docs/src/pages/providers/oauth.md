@@ -8,6 +8,13 @@ layout: ../../layouts/MainLayout.astro
 
 OAuth providers will probably be the most common reason for developers to use Astro Auth. Astro Auth supports PKCE security mechanism as well.
 
+## Authorized redirect URIs
+
+The "Authorized redirect URIs" must be configured on your OAuth provider's console.
+
+- For production: https://{YOUR_DOMAIN}/api/auth/oauth/{PROVIDER}
+- For development: http://localhost:3000/api/auth/oauth/{PROVIDER}
+
 ## OAuth Providers
 
 Inside the `@astro-auth/provider` package, you will find 8 OAuth providers including their own UI components in the `@astro-auth/ui` package. Here is the list of OAuth providers:
