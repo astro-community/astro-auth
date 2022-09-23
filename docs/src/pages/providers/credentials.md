@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 ## Instructions
 
-Optionally, you can use `CredentialsProvider` to authenticate with your custom backend server. In your `signIn` function, you can pass the `provider` parameter as `credentials` and pass the data required to authenticate in the backend server to the `login` object in the `signIn` function.
+Optionally, you can use `CredentialsProvider` to authenticate with your custom backend server. In your `signIn` function, you can pass the `provider` parameter as `credential` and pass the data required to authenticate in the backend server to the `login` object in the `signIn` function.
 
 ```ts
 import AstroAuth from "@astro-auth/core";
