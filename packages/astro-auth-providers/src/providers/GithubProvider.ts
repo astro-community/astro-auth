@@ -14,6 +14,7 @@ const GithubProvider = (options: OAuthUserOptions): OAuthConfig => {
       return {
         id: profile.id.toString(),
         name: profile.name || profile.login,
+        login: profile.login,
         email: profile.email,
         image: profile.avatar_url,
       };
