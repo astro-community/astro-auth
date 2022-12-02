@@ -24,7 +24,7 @@ const user = getUser({ client: Astro });
 
 ### Calling `getUser` in an API route.
 
-Make sure to pass the `request` object as the server property to the function if you're using this in the frontmatter.
+Make sure to pass the `request` object as the server property to the function if you're using this in the API route.
 
 ```js
 import { getUser } from "@astro-auth/core";
