@@ -41,7 +41,7 @@ const signIn = async ({
     const provider = new ethers.providers.Web3Provider(window.ethereum as any);
     const signer = provider.getSigner();
 
-    const response = await fetch("api/auth/sign-message");
+    const response = await fetch("/api/auth/sign-message");
     const data = await response.json();
 
     if (!response.ok) {
@@ -59,7 +59,7 @@ const signIn = async ({
     };
   }
 
-  const response = await fetch("api/auth/signin", {
+  const response = await fetch("/api/auth/signin", {
     method: "POST",
     body: JSON.stringify({
       provider,
