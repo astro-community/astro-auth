@@ -18,7 +18,7 @@ const githubEditUrl =
 <html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
   <head>
     <HeadCommon />
-    <HeadSEO {content} canonicalURL={Astro.canonicalURL} />
+    <HeadSEO {content} canonicalURL={Astro.url} />
     <title
       >{content.title
         ? `${content.title} 🚀 ${CONFIG.SITE.title}`
